@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Plan de jeûne intermittent bas-glucides pour deux personnes" />
+<title>Plan IF · Bas glucides — Pierre-Yves & co.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #faf7f2;
+    --surface: #ffffff;
+    --ink: #1a1815;
+    --ink-soft: #6b6760;
+    --ink-faint: #a8a39a;
+    --line: #e8e2d6;
+    --line-strong: #d4ccb9;
+    --accent: #c44528;
+    --accent-soft: #f5e3dc;
+    --leaf: #4a6b3a;
+    --leaf-soft: #e3ebd9;
+    --sand: #d4b896;
+    --sand-soft: #f5ead6;
+    --night: #1f2937;
+    --night-soft: #dde3eb;
+    --shadow: 0 1px 0 rgba(26,24,21,0.04), 0 0 0 1px rgba(26,24,21,0.05);
+    --radius: 12px;
+    --radius-lg: 18px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Manrope', -apple-system, sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ——— Texture grain ——— */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.4;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+  }
+
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ——— Hero ——— */
+  header {
+    padding: 80px 0 60px;
+    position: relative;
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(48px, 7vw, 88px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  .lede {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(18px, 2vw, 22px);
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 620px;
+    font-weight: 400;
+  }
+
+  .meta-bar {
+    display: flex;
+    gap: 32px;
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    flex-wrap: wrap;
+  }
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .meta-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .meta-val {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    color: var(--ink);
+  }
+
+  /* ——— Tabs ——— */
+  .tabs {
+    display: flex;
+    gap: 4px;
+    margin: 80px 0 32px;
+    padding: 6px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    width: fit-content;
+    box-shadow: var(--shadow);
+  }
+  .tab {
+    padding: 10px 22px;
+    border: none;
+    background: transparent;
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s;
+    letter-spacing: -0.01em;
+  }
+  .tab:hover { color: var(--ink); }
+  .tab.active {
+    background: var(--ink);
+    color: var(--bg);
+  }
+
+  .panel { display: none; animation: fade 0.4s ease; }
+  .panel.active { display: block; }
+  @keyframes fade {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ——— Section title ——— */
+  .section {
+    margin: 56px 0;
+  }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+  }
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+
+  /* ——— Stats grid ——— */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+  .stat {
+    padding: 20px 24px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--surface);
+    position: relative;
+    transition: background 0.2s;
+  }
+  .stat:hover { background: var(--bg); }
+  .stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 8px;
+  }
+  .stat-val {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .stat-val.accent { color: var(--accent); }
+  .stat-val.leaf { color: var(--leaf); }
+  .stat-unit {
+    font-family: 'Manrope', sans-serif;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-left: 4px;
+    font-weight: 400;
+  }
+
+  /* ——— Window timeline ——— */
+  .window-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+  }
+  .window-title {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .window-sub {
+    color: var(--ink-soft);
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  .timeline {
+    display: flex;
+    height: 56px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    border: 1px solid var(--line);
+  }
+  .tl-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    position: relative;
+  }
+  .tl-fast {
+    background: var(--night-soft);
+    color: var(--night);
+    flex: 16;
+  }
+  .tl-eat {
+    background: var(--leaf-soft);
+    color: var(--leaf);
+    flex: 8;
+  }
+  .tl-legend {
+    display: flex;
+    gap: 20px;
+    font-size: 12px;
+    color: var(--ink-soft);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .tl-legend span::before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .tl-legend span.fast::before { background: var(--night); }
+  .tl-legend span.eat::before { background: var(--leaf); }
+
+  /* ——— Meals ——— */
+  .meals {
+    display: flex;
+    flex-direction: column;
+  }
+  .meal {
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    gap: 24px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+  .meal:last-child { border-bottom: none; }
+  .meal-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+    padding-top: 4px;
+  }
+  .meal-body { min-width: 0; }
+  .meal-name {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .meal-detail {
+    color: var(--ink-soft);
+    font-size: 14.5px;
+    line-height: 1.55;
+  }
+  .kcal {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    padding: 6px 12px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 6px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    align-self: start;
+  }
+  .kcal.leaf { background: var(--leaf-soft); color: var(--leaf); }
+  .kcal.sand { background: var(--sand-soft); color: #8c6f3d; }
+
+  /* ——— Week grid ——— */
+  .week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+  }
+  .day {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 16px 8px;
+    text-align: center;
+    transition: transform 0.15s, border-color 0.15s;
+  }
+  .day:hover {
+    transform: translateY(-2px);
+    border-color: var(--line-strong);
+  }
+  .day-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .day-num {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+  .day-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    padding: 4px 6px;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    display: block;
+  }
+  .day-tag.sport { background: var(--leaf-soft); color: var(--leaf); }
+  .day-tag.fast { background: var(--night-soft); color: var(--night); }
+  .day-tag.flex { background: var(--sand-soft); color: #8c6f3d; }
+
+  /* ——— Food categories ——— */
+  .food-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .food {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    border-left: 3px solid var(--leaf);
+  }
+  .food.limit { border-left-color: var(--accent); }
+  .food-cat {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 8px;
+  }
+  .food-items {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+
+  /* ——— Rules ——— */
+  .rules {
+    list-style: none;
+    counter-reset: rule;
+  }
+  .rule {
+    counter-increment: rule;
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .rule::before {
+    content: counter(rule, decimal-leading-zero);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+  }
+  .rule-text {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--ink);
+    font-weight: 400;
+  }
+
+  /* ——— Footer ——— */
+  footer {
+    margin-top: 120px;
+    padding: 48px 0 60px;
+    border-top: 1px solid var(--line);
+    color: var(--ink-soft);
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .footer-mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ——— Decorative mark ——— */
+  .corner-mark {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 0.1em;
+    z-index: 3;
+  }
+
+  /* ——— Mobile ——— */
+  @media (max-width: 720px) {
+    .container { padding: 0 20px; }
+    header { padding: 60px 0 40px; }
+    .meal { grid-template-columns: 1fr; gap: 8px; }
+    .kcal { justify-self: start; }
+    .week { grid-template-columns: repeat(4, 1fr); }
+    .meta-bar { gap: 20px; }
+    .stat { padding: 16px 18px; }
+    .stat-val { font-size: 26px; }
+    .tabs { width: 100%; overflow-x: auto; }
+    .tab { white-space: nowrap; padding: 10px 16px; font-size: 13px; }
+    .corner-mark { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="corner-mark">PYV · 2026.04</div>
+
+<div class="container">
+
+  <header>
+    <div class="eyebrow">Protocole nutritionnel · v1</div>
+    <h1>Jeûne intermittent<br/><em>bas glucides</em>, à deux.</h1>
+    <p class="lede">
+      Plan de 8 à 12 semaines pour atteindre les objectifs de poids sans dérégler l'énergie quotidienne. Cadre 16:8, glucides limités, focus sur les protéines et bons lipides.
+    </p>
+    <div class="meta-bar">
+      <div class="meta-item">
+        <span class="meta-label">Durée</span>
+        <span class="meta-val">8–12 semaines</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Cadre</span>
+        <span class="meta-val">16:8</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Approche</span>
+        <span class="meta-val">Low-carb modéré</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Cible totale</span>
+        <span class="meta-val">−7 kg combinés</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="tabs" role="tablist">
+    <button class="tab active" data-tab="homme">Homme · 93 kg</button>
+    <button class="tab" data-tab="femme">Femme · 56 kg</button>
+    <button class="tab" data-tab="commun">Plan commun</button>
+  </div>
+
+  <!-- ——— HOMME ——— -->
+  <div id="homme" class="panel active">
+
+    <div class="section">
+      <div class="section-head">
+        <span class="section-num">01</span>
+        <h2 class="section-title">Métriques cibles</h2>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-label">TDEE estimé</div>
+          <div class="stat-val accent">2 650<span class="stat-unit">kcal</span></div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Cible déficit</div>
+          <div class="stat-val">2 150<span class="stat-unit">kcal</span></div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Protéines</div>
+          <div class="stat-val leaf">175<span class="stat-unit">g</span></div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Lipides</div>
+          <div class="stat-val">120<span class="stat-unit">g</span></div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Glucides nets</div>
+          <div class="stat-val">50–80<span class="stat-unit">g</span></div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Objectif</div>
+          <div class="stat-val accent">−4<span class="stat-unit">kg</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Fenêtre alimentaire</h2>
+      </div>
+      <div class="window-card">
+        <div class="window-title">Jeûne 16h · Repas 12h00 → 20h00</div>
+        <div class="window-sub">Compatible avec le vélo électrique le matin (faible intensité). Café noir, thé, eau autorisés en période de jeûne.</div>
+        <div class="timeline">
+          <div class="tl-block tl-fast">Jeûne · 16h</div>
+          <div class="tl-block tl-eat">Repas · 8h</div>
+        </div>
+        <div class="tl-legend">
+          <span class="fast">Phase de jeûne (20h → 12h)</span>
+          <span class="eat">Fenêtre alimentaire (12h → 20h)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">
+        <span class="section-num">03</span>
+        <h2 class="section-title">Repas types</h2>
+      </div>
+      <div class="meals">
+        <div class="meal">
+          <div class="meal-time">12:00</div>
+          <div class="meal-body">
+            <div class="meal-name">Déjeuner principal</div>
+            <div class="meal-detail">Viande ou poisson (180g), grandes portions de légumes cuits + crudités, avocat ou huile d'olive. Pas de féculents.</div>
+          </div>
+          <div class="kcal">700 kcal</div>
+        </div>
+        <div class="meal">
+          <div class="meal-time">15:30</div>
+          <div class="meal-body">
+            <div class="meal-name">Collation facultative</div>
+            <div class="meal-detail">Noix ou amandes (30g), fromage (30g), ou œuf dur. Uniquement si faim réelle, jamais par habitude.</div>
+          </div>
+          <div class="kcal sand">250 kcal</div>
+        </div>
+        <div class="meal">
+          <div class="meal-time">19:00</div>
+          <div class="meal-body">
+            <div class="meal-name">Dîner</div>
+            <div class="meal-detail">Poisson gras, œufs ou viande maigre. Légumes sautés à l'huile d'olive. Lipides de qualité en priorité.</div>
+          </div>
+          <div class="kcal">700 kcal</div>
+        </div>
+        <div class="meal">
+          <div class="meal-time">SPORT</div>
+          <div class="meal-body">
+            <div class="meal-name">Jours tapis 15% (×2/sem)</div>
+            <div class="meal-detail">Ajouter 30g de riz basmati ou patate douce au déjeuner ces jours-là uniquement. Aide à la récupération.</div>
+          </div>
+          <div class="kcal leaf">+150 kcal</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ——— FEMME ——— -->
+  <div id="femme" class="panel">
+
+    <div class="section">
+      <div class="section-head">
+        <span class="section-num">01</span>
+        <h2 class="section-title">Métriques cibles</h2>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-label">TDEE estimé</div>
+          <div class="stat-val accent">1 700<span class="stat-unit">kcal</span></div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Cible déficit</div>
+          <div class="stat-val">1 350<span class="stat-unit">kcal</span></div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Protéines</div>
+          <div class="stat-val leaf">110<span class="stat-unit">g</span></div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Lipides</div>
+          <div class="stat-val">85<span class="stat-unit">g</span></div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Glucides nets</div>
+          <div class="stat-val">30–50<span class="stat-unit">g</span></div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Objectif</div>
+          <div class="stat-val accent">−3<span class="stat-unit">kg</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Fenêtre alimentaire</h2>
+      </div>
+      <div class="window-card">
+        <div class="window-title">Jeûne 16h · Repas 12h00 → 20h00</div>
+        <div class="window-sub">Possibilité de démarrer en 14:10 (10h-20h) la première semaine si peu d'expérience du jeûne, puis transition.</div>
+        <div class="timeline">
+          <div class="tl-block tl-fast">Jeûne · 16h</div>
+          <div class="tl-block tl-eat">Repas · 8h</div>
+        </div>
+        <div class="tl-legend">
+          <span class="fast">Phase de jeûne (20h → 12h)</span>
+          <span class="eat">Fenêtre alimentaire (12h → 20h)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">
+        <span class="section-num">03</span>
+        <h2 class="section-title">Repas types</h2>
+      </div>
+      <div class="meals">
+        <div class="meal">
+          <div class="meal-time">12:00</div>
+          <div class="meal-body">
+            <div class="meal-name">Déjeuner</div>
+            <div class="meal-detail">Protéines maigres (150g), légumes variés cuits ou crus, huile d'olive, salade verte. Couleurs et textures.</div>
+          </div>
+          <div class="kcal">550 kcal</div>
+        </div>
+        <div class="meal">
+          <div class="meal-time">16:00</div>
+          <div class="meal-body">
+            <div class="meal-name">Collation légère</div>
+            <div class="meal-detail">Yaourt grec nature (sans sucre) avec quelques baies, ou 20g de noix de cajou. Idéal vers le pic de fatigue.</div>
+          </div>
+          <div class="kcal sand">150 kcal</div>
+        </div>
+        <div class="meal">
+          <div class="meal-time">19:30</div>
+          <div class="meal-body">
+            <div class="meal-name">Dîner</div>
+            <div class="meal-detail">Poisson, œufs ou tofu. Légumes rôtis au four (courgettes, poivrons, champignons). Éviter les féculents le soir.</div>
+          </div>
+          <div class="kcal">500 kcal</div>
+        </div>
+        <div class="meal">
+          <div class="meal-time">SPORT</div>
+          <div class="meal-body">
+            <div class="meal-name">Autour de la séance hebdo</div>
+            <div class="meal-detail">Petite portion de protéines 1h avant ou après l'activité. Glucides modérés acceptés ce jour-là.</div>
+          </div>
+          <div class="kcal leaf">+100 kcal</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ——— COMMUN ——— -->
+  <div id="commun" class="panel">
+
+    <div class="section">
+      <div class="section-head">
+        <span class="section-num">01</span>
+        <h2 class="section-title">Semaine type</h2>
+      </div>
+      <div class="week">
+        <div class="day"><div class="day-name">Lun</div><div class="day-num">1</div><span class="day-tag fast">Jeûne</span></div>
+        <div class="day"><div class="day-name">Mar</div><div class="day-num">2</div><span class="day-tag sport">Tapis H</span></div>
+        <div class="day"><div class="day-name">Mer</div><div class="day-num">3</div><span class="day-tag fast">Jeûne</span></div>
+        <div class="day"><div class="day-name">Jeu</div><div class="day-num">4</div><span class="day-tag sport">Tapis H</span></div>
+        <div class="day"><div class="day-name">Ven</div><div class="day-num">5</div><span class="day-tag fast">Jeûne</span></div>
+        <div class="day"><div class="day-name">Sam</div><div class="day-num">6</div><span class="day-tag sport">Sport F</span></div>
+        <div class="day"><div class="day-name">Dim</div><div class="day-num">7</div><span class="day-tag flex">Flex</span></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Aliments</h2>
+      </div>
+      <div class="food-list">
+        <div class="food">
+          <div class="food-cat">Protéines</div>
+          <div class="food-items">Œufs, poulet, dinde, saumon, maquereau, sardines, thon, cottage cheese, fromage à pâte dure</div>
+        </div>
+        <div class="food">
+          <div class="food-cat">Lipides</div>
+          <div class="food-items">Huile d'olive, avocat, noix, amandes, beurre, crème entière (modération), olives</div>
+        </div>
+        <div class="food">
+          <div class="food-cat">Légumes verts</div>
+          <div class="food-items">Épinards, courgettes, brocoli, chou, poivrons, concombre, roquette, champignons, asperges</div>
+        </div>
+        <div class="food limit">
+          <div class="food-cat">À limiter strictement</div>
+          <div class="food-items">Pain, pâtes, riz, pommes de terre, fruits sucrés, jus, sodas, alcool — réservés aux jours sport</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">
+        <span class="section-num">03</span>
+        <h2 class="section-title">Règles de base</h2>
+      </div>
+      <ul class="rules">
+        <li class="rule">
+          <span class="rule-text">Hydratation 2 à 3 litres d'eau par jour, café et thé sans sucre autorisés pendant le jeûne.</span>
+        </li>
+        <li class="rule">
+          <span class="rule-text">Maintenir l'apport en sel, surtout en début de protocole. Bouillon de légumes accepté en jeûne prolongé.</span>
+        </li>
+        <li class="rule">
+          <span class="rule-text">Aucune consommation d'alcool en semaine. Maximum un verre le week-end si occasion sociale.</span>
+        </li>
+        <li class="rule">
+          <span class="rule-text">Pas de cheat meal avant trois semaines de régime établi. La constance prime sur l'intensité.</span>
+        </li>
+        <li class="rule">
+          <span class="rule-text">Pesée le matin à jeun, même jour de la semaine. La moyenne hebdomadaire compte plus que le poids quotidien.</span>
+        </li>
+        <li class="rule">
+          <span class="rule-text">Si étourdissements le matin avant le vélo, décaler le premier repas à 11h les jours d'effort uniquement.</span>
+        </li>
+        <li class="rule">
+          <span class="rule-text">Plan révisable à 4 semaines selon la perte effective. Ajustement caloriques de ±150 kcal si stagnation.</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    <div>
+      Plan personnel — non médical. À adapter selon ressenti et avis professionnel si besoin.
+    </div>
+    <div class="footer-mono">
+      v1.0 · 2026.04.29
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.tab;
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(target).classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
