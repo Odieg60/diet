@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Menu S19 · 4 → 8 mai 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #faf7f2;
+    --surface: #ffffff;
+    --ink: #1a1815;
+    --ink-soft: #6b6760;
+    --ink-faint: #a8a39a;
+    --line: #e8e2d6;
+    --line-strong: #d4ccb9;
+    --accent: #c44528;
+    --accent-soft: #f5e3dc;
+    --leaf: #4a6b3a;
+    --leaf-soft: #e3ebd9;
+    --sand: #d4b896;
+    --sand-soft: #f5ead6;
+    --night: #1f2937;
+    --night-soft: #dde3eb;
+    --kids: #8c4a6b;
+    --kids-soft: #f0e0e8;
+    --shadow: 0 1px 0 rgba(26,24,21,0.04), 0 0 0 1px rgba(26,24,21,0.05);
+    --radius: 12px;
+    --radius-lg: 18px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Manrope', -apple-system, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.4;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+  }
+
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
+
+  .nav-back { padding: 24px 0 0; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-soft); letter-spacing: 0.05em; }
+  .nav-back a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid transparent; transition: 0.2s; margin-right: 18px; }
+  .nav-back a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  header { padding: 60px 0 48px; }
+  .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+  .eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--accent); }
+
+  h1 { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(40px, 6vw, 72px); line-height: 0.98; letter-spacing: -0.03em; margin-bottom: 24px; }
+  h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .lede { font-family: 'Fraunces', serif; font-size: clamp(17px, 1.8vw, 20px); line-height: 1.5; color: var(--ink-soft); max-width: 660px; }
+
+  /* Stock + planning summary */
+  .summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin: 40px 0 0;
+  }
+  .sum-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    box-shadow: var(--shadow);
+  }
+  .sum-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 12px;
+  }
+  .sum-list {
+    list-style: none;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  .sum-list li { padding: 6px 0; border-bottom: 1px dashed var(--line); display: flex; justify-content: space-between; }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-meta { color: var(--ink-soft); font-size: 12.5px; }
+
+  /* Day nav */
+  .day-nav {
+    display: flex; gap: 4px; margin: 48px 0 32px; padding: 6px; background: var(--surface);
+    border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); flex-wrap: wrap;
+  }
+  .day-nav-btn {
+    padding: 10px 18px; border: none; background: transparent; font-family: 'Manrope', sans-serif;
+    font-size: 13px; font-weight: 500; color: var(--ink-soft); cursor: pointer; border-radius: 8px;
+    text-decoration: none; display: inline-block; transition: 0.2s;
+  }
+  .day-nav-btn:hover { color: var(--ink); background: var(--bg); }
+
+  /* Recipe cards */
+  .recipe { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 36px; margin-bottom: 24px; box-shadow: var(--shadow); scroll-margin-top: 24px; }
+  .recipe-head { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: start; }
+  .recipe-when { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+  .recipe-name { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 400; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 8px; }
+  .recipe-sub { color: var(--ink-soft); font-size: 14.5px; line-height: 1.5; max-width: 580px; }
+  .recipe-tags { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+  .tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; padding: 5px 10px; border-radius: 6px; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; }
+  .tag.oven { background: var(--accent-soft); color: var(--accent); }
+  .tag.thaw { background: var(--night-soft); color: var(--night); }
+  .tag.kcal { background: var(--leaf-soft); color: var(--leaf); }
+  .tag.fast { background: var(--sand-soft); color: #8c6f3d; }
+  .tag.solo { background: var(--kids-soft); color: var(--kids); }
+
+  .recipe-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0; margin: 24px 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .meta-cell { padding: 14px 18px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg); }
+  .meta-cell-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 4px; }
+  .meta-cell-val { font-family: 'Fraunces', serif; font-size: 18px; }
+
+  .recipe-body { display: grid; grid-template-columns: 1fr 1.3fr; gap: 40px; margin-top: 24px; }
+  .panel-title { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+
+  .ing-list { list-style: none; }
+  .ing { padding: 9px 0; font-size: 14.5px; border-bottom: 1px dashed var(--line); display: flex; justify-content: space-between; gap: 16px; }
+  .ing:last-child { border-bottom: none; }
+  .ing-qty { color: var(--ink-soft); font-family: 'JetBrains Mono', monospace; font-size: 13px; white-space: nowrap; }
+  .ing-section { margin-top: 18px; padding-top: 12px; border-top: 2px solid var(--kids); position: relative; }
+  .ing-section::before { content: 'Ajout enfants'; position: absolute; top: -10px; left: 0; background: var(--kids-soft); color: var(--kids); font-family: 'JetBrains Mono', monospace; font-size: 10px; padding: 3px 10px; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 4px; }
+
+  .steps { list-style: none; counter-reset: step; }
+  .step { counter-increment: step; display: grid; grid-template-columns: 32px 1fr; gap: 16px; padding: 12px 0; align-items: baseline; border-bottom: 1px dashed var(--line); }
+  .step:last-child { border-bottom: none; }
+  .step::before { content: counter(step, decimal-leading-zero); font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); }
+  .step-text { font-size: 14.5px; line-height: 1.55; }
+  .step-text strong { font-weight: 500; }
+
+  .vzug { margin-top: 24px; padding: 18px 22px; background: var(--accent-soft); border-radius: var(--radius); border-left: 3px solid var(--accent); }
+  .vzug-head { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; font-weight: 500; }
+  .vzug-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 14px; }
+  .vzug-item { font-size: 13px; }
+  .vzug-item strong { display: block; color: var(--accent); font-weight: 500; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 3px; }
+
+  .note { margin-top: 18px; padding: 14px 18px; background: var(--leaf-soft); border-radius: var(--radius); border-left: 3px solid var(--leaf); font-size: 13.5px; color: var(--leaf); line-height: 1.55; }
+  .note strong { font-weight: 500; }
+
+  /* Shopping list */
+  .shopping {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+    margin-top: 60px;
+    box-shadow: var(--shadow);
+  }
+  .shopping h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .shopping-sub { color: var(--ink-soft); font-size: 14.5px; margin-bottom: 28px; }
+  .cat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px; }
+  .cat h3 { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+  .cat ul { list-style: none; }
+  .cat li { padding: 7px 0; font-size: 14px; display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px dashed var(--line); }
+  .cat li:last-child { border-bottom: none; }
+  .cat li .qty { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: var(--ink-soft); white-space: nowrap; }
+  .cat li.check { text-decoration: line-through; color: var(--ink-faint); }
+
+  /* Decongelation schedule */
+  .decongel {
+    margin-top: 32px;
+    padding: 20px 24px;
+    background: var(--night-soft);
+    border-radius: var(--radius);
+    border-left: 3px solid var(--night);
+  }
+  .decongel-head { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--night); margin-bottom: 12px; font-weight: 500; }
+  .decongel ul { list-style: none; font-size: 14px; }
+  .decongel li { padding: 6px 0; }
+  .decongel li::before { content: '⏰ '; }
+
+  footer { margin-top: 100px; padding: 40px 0 60px; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 13px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  .footer-mono { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.05em; }
+
+  @media (max-width: 800px) {
+    .container { padding: 0 20px; }
+    .recipe { padding: 24px 22px; }
+    .recipe-head { grid-template-columns: 1fr; }
+    .recipe-tags { justify-content: flex-start; }
+    .recipe-name { font-size: 26px; }
+    .recipe-body { grid-template-columns: 1fr; gap: 32px; }
+    .shopping { padding: 24px 22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="nav-back">
+    <a href="./">← Plan</a>
+    <a href="./menus.html">← Menus type</a>
+  </div>
+
+  <header>
+    <div class="eyebrow">Semaine 19 · 4 → 8 mai 2026</div>
+    <h1>Menu de la <em>semaine</em>.</h1>
+    <p class="lede">
+      Cinq repas à préparer. Lundi soir déjà géré. Mardi et jeudi soir, repas allégé : Madame seule avec les enfants. Bœuf haché placé mercredi soir avec sauce doublée pour reste jeudi.
+    </p>
+
+    <div class="summary">
+      <div class="sum-card">
+        <div class="sum-title">Stock disponible</div>
+        <ul class="sum-list">
+          <li><span>Œufs (frigo)</span><span class="sum-meta">4</span></li>
+          <li><span>Bœuf haché 5%</span><span class="sum-meta">500g (congel)</span></li>
+        </ul>
+      </div>
+      <div class="sum-card">
+        <div class="sum-title">Planning ajusté S19</div>
+        <ul class="sum-list">
+          <li><span>Lun soir</span><span class="sum-meta">déjà géré</span></li>
+          <li><span>Mar soir</span><span class="sum-meta">1A + 2E</span></li>
+          <li><span>Mer midi</span><span class="sum-meta">2A + 2E</span></li>
+          <li><span>Mer soir</span><span class="sum-meta">2A + 2E</span></li>
+          <li><span>Jeu soir</span><span class="sum-meta">1A + 2E</span></li>
+          <li><span>Ven midi</span><span class="sum-meta">2A + 2E</span></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <nav class="day-nav">
+    <a href="#mar-soir" class="day-nav-btn">Mar · soir</a>
+    <a href="#mer-midi" class="day-nav-btn">Mer · midi</a>
+    <a href="#mer-soir" class="day-nav-btn">Mer · soir</a>
+    <a href="#jeu-soir" class="day-nav-btn">Jeu · soir</a>
+    <a href="#ven-midi" class="day-nav-btn">Ven · midi</a>
+    <a href="#courses" class="day-nav-btn" style="margin-left:auto;color:var(--accent)">Liste courses ↓</a>
+  </nav>
+
+  <!-- ——— MARDI SOIR ——— -->
+  <article class="recipe" id="mar-soir">
+    <div class="recipe-head">
+      <div>
+        <div class="recipe-when">Mardi 5 mai · souper</div>
+        <h2 class="recipe-name">Galettes de poulet aux herbes, salade composée</h2>
+        <p class="recipe-sub">Un seul adulte (Madame), recette légère et rapide. Cuisson en une seule poêle, salade en accompagnement. Les enfants accompagnent de pain ou pommes de terre vapeur.</p>
+      </div>
+      <div class="recipe-tags">
+        <span class="tag solo">Madame</span>
+        <span class="tag fast">25 min</span>
+        <span class="tag kcal">~480 kcal</span>
+      </div>
+    </div>
+
+    <div class="recipe-meta">
+      <div class="meta-cell"><div class="meta-cell-label">Prép</div><div class="meta-cell-val">15 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Cuisson</div><div class="meta-cell-val">10 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Pour</div><div class="meta-cell-val">1A + 2E</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Glucides A</div><div class="meta-cell-val">~8g</div></div>
+    </div>
+
+    <div class="recipe-body">
+      <div>
+        <div class="panel-title">Ingrédients</div>
+        <ul class="ing-list">
+          <li class="ing"><span>Blancs de poulet (à hacher)</span><span class="ing-qty">350g</span></li>
+          <li class="ing"><span>Échalote</span><span class="ing-qty">1</span></li>
+          <li class="ing"><span>Persil + ciboulette</span><span class="ing-qty">1 botte</span></li>
+          <li class="ing"><span>Œuf (à intégrer aux galettes)</span><span class="ing-qty">1 (sur les 4)</span></li>
+          <li class="ing"><span>Mesclun ou roquette</span><span class="ing-qty">150g</span></li>
+          <li class="ing"><span>Tomates cerise</span><span class="ing-qty">200g</span></li>
+          <li class="ing"><span>Concombre</span><span class="ing-qty">½</span></li>
+          <li class="ing"><span>Avocat</span><span class="ing-qty">1</span></li>
+          <li class="ing"><span>Huile olive, moutarde, vinaigre</span><span class="ing-qty">qs</span></li>
+
+          <ul class="ing-list ing-section">
+            <li class="ing"><span>Pommes de terre vapeur</span><span class="ing-qty">300g</span></li>
+          </ul>
+        </ul>
+      </div>
+
+      <div>
+        <div class="panel-title">Instructions</div>
+        <ol class="steps">
+          <li class="step"><span class="step-text">Hacher finement les blancs de poulet au couteau (ou mixer brièvement). Émincer l'échalote, ciseler les herbes.</span></li>
+          <li class="step"><span class="step-text">Mélanger poulet haché + échalote + herbes + 1 œuf + sel + poivre. Former 5-6 galettes (1 grosse pour Madame, 2 petites par enfant).</span></li>
+          <li class="step"><span class="step-text">Cuire à la poêle dans 2 c.s. d'huile, <strong>4 min de chaque côté</strong> à feu moyen.</span></li>
+          <li class="step"><span class="step-text">Pendant ce temps : préparer la salade (mesclun, tomates, concombre, avocat). Vinaigrette moutarde + vinaigre + huile.</span></li>
+          <li class="step"><span class="step-text">Pour les enfants, faire cuire les pommes de terre vapeur 12 min en parallèle (V-ZUG vapeur 100°C).</span></li>
+          <li class="step"><span class="step-text">Service : Madame = galette + grande salade. Enfants = galettes + pommes de terre + un peu de salade.</span></li>
+        </ol>
+
+        <div class="note">
+          <strong>Astuce →</strong> Préparer les galettes le matin et les conserver crues au frigo pour gagner du temps le soir.
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ——— MERCREDI MIDI ——— -->
+  <article class="recipe" id="mer-midi">
+    <div class="recipe-head">
+      <div>
+        <div class="recipe-when">Mercredi 6 mai · dîner</div>
+        <h2 class="recipe-name">Omelette aux herbes, jambon cru, salade verte</h2>
+        <p class="recipe-sub">Repas express à la maison, utilise les 3 œufs restants du frigo + 4 nouveaux à acheter. Idéal après une matinée chargée avec les enfants.</p>
+      </div>
+      <div class="recipe-tags">
+        <span class="tag fast">15 min</span>
+        <span class="tag kcal">~480 kcal</span>
+      </div>
+    </div>
+
+    <div class="recipe-meta">
+      <div class="meta-cell"><div class="meta-cell-label">Prép</div><div class="meta-cell-val">5 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Cuisson</div><div class="meta-cell-val">5 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Pour</div><div class="meta-cell-val">2A + 2E</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Glucides A</div><div class="meta-cell-val">~5g</div></div>
+    </div>
+
+    <div class="recipe-body">
+      <div>
+        <div class="panel-title">Ingrédients</div>
+        <ul class="ing-list">
+          <li class="ing"><span>Œufs (3 du frigo + 4 achetés)</span><span class="ing-qty">7</span></li>
+          <li class="ing"><span>Jambon cru</span><span class="ing-qty">8 tranches</span></li>
+          <li class="ing"><span>Salade verte (batavia)</span><span class="ing-qty">1 sachet</span></li>
+          <li class="ing"><span>Ciboulette, persil, basilic</span><span class="ing-qty">qs</span></li>
+          <li class="ing"><span>Comté ou gruyère râpé</span><span class="ing-qty">60g</span></li>
+          <li class="ing"><span>Beurre</span><span class="ing-qty">30g</span></li>
+          <li class="ing"><span>Huile, vinaigre, moutarde</span><span class="ing-qty">qs</span></li>
+
+          <ul class="ing-list ing-section">
+            <li class="ing"><span>Pain de campagne</span><span class="ing-qty">4 tranches</span></li>
+          </ul>
+        </ul>
+      </div>
+
+      <div>
+        <div class="panel-title">Instructions</div>
+        <ol class="steps">
+          <li class="step"><span class="step-text">Battre les œufs avec sel, poivre, herbes ciselées. Ajouter le fromage râpé.</span></li>
+          <li class="step"><span class="step-text">Faire fondre le beurre dans une grande poêle, verser les œufs. Cuire à feu moyen, replier en omelette baveuse au centre, <strong>3-4 min</strong>.</span></li>
+          <li class="step"><span class="step-text">Préparer la vinaigrette : moutarde + vinaigre + huile + sel.</span></li>
+          <li class="step"><span class="step-text">Service : couper l'omelette en 4. 2 tranches de jambon cru par adulte, 1 par enfant. Salade pour tous, pain pour les enfants.</span></li>
+        </ol>
+
+        <div class="note">
+          <strong>Note œufs →</strong> Garder 1 œuf en réserve (sur les 4 du frigo, on en utilise 1 mardi pour les galettes et 3 ici).
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ——— MERCREDI SOIR ——— -->
+  <article class="recipe" id="mer-soir">
+    <div class="recipe-head">
+      <div>
+        <div class="recipe-when">Mercredi 6 mai · souper</div>
+        <h2 class="recipe-name">Bolognaise maison double dose, courgettes spaghetti</h2>
+        <p class="recipe-sub">Sauce bolognaise généreuse pour 2 repas. Adultes sur courgettes en spirales, enfants sur pâtes. Le reste de sauce est utilisé jeudi soir.</p>
+      </div>
+      <div class="recipe-tags">
+        <span class="tag thaw">Décong. mar 18h</span>
+        <span class="tag kcal">~620 kcal</span>
+      </div>
+    </div>
+
+    <div class="recipe-meta">
+      <div class="meta-cell"><div class="meta-cell-label">Prép</div><div class="meta-cell-val">15 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Cuisson</div><div class="meta-cell-val">35 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Pour</div><div class="meta-cell-val">2A + 2E + reste J</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Glucides A</div><div class="meta-cell-val">~14g</div></div>
+    </div>
+
+    <div class="recipe-body">
+      <div>
+        <div class="panel-title">Ingrédients</div>
+        <ul class="ing-list">
+          <li class="ing"><span>Bœuf haché 5% (du congel)</span><span class="ing-qty">500g</span></li>
+          <li class="ing"><span>Courgettes (pour spirales)</span><span class="ing-qty">3 grosses</span></li>
+          <li class="ing"><span>Tomates pelées en boîte</span><span class="ing-qty">1,2 kg (3 boîtes)</span></li>
+          <li class="ing"><span>Oignons jaunes</span><span class="ing-qty">2</span></li>
+          <li class="ing"><span>Carotte (pour la sauce)</span><span class="ing-qty">1</span></li>
+          <li class="ing"><span>Branche de céleri</span><span class="ing-qty">1</span></li>
+          <li class="ing"><span>Ail</span><span class="ing-qty">4 gousses</span></li>
+          <li class="ing"><span>Concentré de tomate</span><span class="ing-qty">3 c.s.</span></li>
+          <li class="ing"><span>Origan, basilic, laurier</span><span class="ing-qty">qs</span></li>
+          <li class="ing"><span>Parmesan râpé</span><span class="ing-qty">80g</span></li>
+          <li class="ing"><span>Huile d'olive, sel, poivre</span><span class="ing-qty">qs</span></li>
+
+          <ul class="ing-list ing-section">
+            <li class="ing"><span>Spaghetti ou penne</span><span class="ing-qty">150g sec</span></li>
+          </ul>
+        </ul>
+      </div>
+
+      <div>
+        <div class="panel-title">Instructions</div>
+        <ol class="steps">
+          <li class="step"><span class="step-text">Hacher fin oignons, carotte, céleri, ail. Suer dans 3 c.s. d'huile, 6 min.</span></li>
+          <li class="step"><span class="step-text">Ajouter le bœuf, faire revenir vivement <strong>6 min</strong> en cassant à la cuillère.</span></li>
+          <li class="step"><span class="step-text">Ajouter concentré de tomate, mélanger. Verser les tomates pelées écrasées. Origan, basilic, 1 feuille de laurier. Saler, poivrer.</span></li>
+          <li class="step"><span class="step-text">Mijoter <strong>25 min à feu doux</strong>, à couvert. Goûter, ajuster sel/poivre.</span></li>
+          <li class="step"><span class="step-text">⚠️ <strong>Réserver la moitié de la sauce dans une boîte</strong> (frigo) pour jeudi soir.</span></li>
+          <li class="step"><span class="step-text">Faire des spirales avec 3 courgettes (spiraliseur ou éplucheur julienne). Cuire les pâtes des enfants.</span></li>
+          <li class="step"><span class="step-text">Sauter les courgettes <strong>3-4 min</strong> à la poêle dans 1 c.s. d'huile, sel. Doivent rester al dente.</span></li>
+          <li class="step"><span class="step-text">Service : adultes = courgettes spaghetti + sauce + parmesan. Enfants = pâtes + sauce + parmesan.</span></li>
+        </ol>
+
+        <div class="note">
+          <strong>Décongélation →</strong> Sortir le bœuf haché du congélateur mardi 5 mai vers 18h.<br/>
+          <strong>Mutualisation →</strong> Sauce doublée → moitié réservée pour jeudi soir.
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ——— JEUDI SOIR ——— -->
+  <article class="recipe" id="jeu-soir">
+    <div class="recipe-head">
+      <div>
+        <div class="recipe-when">Jeudi 7 mai · souper</div>
+        <h2 class="recipe-name">Bolognaise réchauffée, œufs au plat sur lit de roquette</h2>
+        <p class="recipe-sub">Reste de sauce bolognaise de mercredi. Madame mange un œuf au plat sur roquette + petite portion de sauce. Enfants ont sauce + pâtes ou polenta.</p>
+      </div>
+      <div class="recipe-tags">
+        <span class="tag solo">Madame</span>
+        <span class="tag fast">15 min</span>
+        <span class="tag kcal">~420 kcal</span>
+      </div>
+    </div>
+
+    <div class="recipe-meta">
+      <div class="meta-cell"><div class="meta-cell-label">Prép</div><div class="meta-cell-val">5 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Cuisson</div><div class="meta-cell-val">10 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Pour</div><div class="meta-cell-val">1A + 2E</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Glucides A</div><div class="meta-cell-val">~10g</div></div>
+    </div>
+
+    <div class="recipe-body">
+      <div>
+        <div class="panel-title">Ingrédients</div>
+        <ul class="ing-list">
+          <li class="ing"><span>Reste sauce bolognaise (de mer)</span><span class="ing-qty">≈ moitié pot</span></li>
+          <li class="ing"><span>Œufs (de la course)</span><span class="ing-qty">2</span></li>
+          <li class="ing"><span>Roquette</span><span class="ing-qty">100g</span></li>
+          <li class="ing"><span>Parmesan râpé</span><span class="ing-qty">qs</span></li>
+          <li class="ing"><span>Beurre, huile, sel, poivre</span><span class="ing-qty">qs</span></li>
+
+          <ul class="ing-list ing-section">
+            <li class="ing"><span>Pâtes ou polenta</span><span class="ing-qty">100g sec</span></li>
+          </ul>
+        </ul>
+      </div>
+
+      <div>
+        <div class="panel-title">Instructions</div>
+        <ol class="steps">
+          <li class="step"><span class="step-text">Réchauffer la sauce bolognaise à feu doux <strong>8 min</strong>, en remuant. Ajouter un peu d'eau si trop épaisse.</span></li>
+          <li class="step"><span class="step-text">Pendant ce temps, faire cuire les pâtes ou la polenta pour les enfants.</span></li>
+          <li class="step"><span class="step-text">Pour Madame : disposer la roquette dans une assiette creuse. Cuire 2 œufs au plat dans le beurre <strong>3 min</strong> (jaune coulant). Poser sur la roquette.</span></li>
+          <li class="step"><span class="step-text">Verser une louche de sauce bolognaise à côté (pas par-dessus, pour préserver les œufs). Parmesan râpé, fleur de sel, poivre.</span></li>
+          <li class="step"><span class="step-text">Service enfants : pâtes/polenta + sauce + parmesan.</span></li>
+        </ol>
+
+        <div class="note">
+          <strong>Variante →</strong> Si Madame préfère, remplacer œufs au plat par 1 burrata sur lit de roquette + un trait de sauce bolognaise tiède. Encore plus simple.
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ——— VENDREDI MIDI ——— -->
+  <article class="recipe" id="ven-midi">
+    <div class="recipe-head">
+      <div>
+        <div class="recipe-when">Vendredi 8 mai · dîner</div>
+        <h2 class="recipe-name">Pavé de saumon vapeur, brocolis & sauce yaourt-aneth</h2>
+        <p class="recipe-sub">Seul repas poisson de la semaine. Cuisson vapeur intégrale au V-ZUG, simultanée pour saumon et brocolis. Repas léger riche en oméga-3 pour finir la semaine.</p>
+      </div>
+      <div class="recipe-tags">
+        <span class="tag thaw">Décong. jeu 18h</span>
+        <span class="tag oven">Four</span>
+        <span class="tag kcal">~550 kcal</span>
+      </div>
+    </div>
+
+    <div class="recipe-meta">
+      <div class="meta-cell"><div class="meta-cell-label">Prép</div><div class="meta-cell-val">10 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Cuisson</div><div class="meta-cell-val">18 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Pour</div><div class="meta-cell-val">2A + 2E</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Glucides A</div><div class="meta-cell-val">~10g</div></div>
+    </div>
+
+    <div class="recipe-body">
+      <div>
+        <div class="panel-title">Ingrédients</div>
+        <ul class="ing-list">
+          <li class="ing"><span>Pavés de saumon</span><span class="ing-qty">4 (≈600g)</span></li>
+          <li class="ing"><span>Brocolis</span><span class="ing-qty">1 grosse tête</span></li>
+          <li class="ing"><span>Yaourt grec nature</span><span class="ing-qty">200g</span></li>
+          <li class="ing"><span>Aneth fraîche</span><span class="ing-qty">1 botte</span></li>
+          <li class="ing"><span>Citron</span><span class="ing-qty">1</span></li>
+          <li class="ing"><span>Câpres</span><span class="ing-qty">1 c.s.</span></li>
+          <li class="ing"><span>Huile d'olive, sel, poivre</span><span class="ing-qty">qs</span></li>
+
+          <ul class="ing-list ing-section">
+            <li class="ing"><span>Pommes de terre vapeur</span><span class="ing-qty">300g</span></li>
+          </ul>
+        </ul>
+      </div>
+
+      <div>
+        <div class="panel-title">Instructions</div>
+        <ol class="steps">
+          <li class="step"><span class="step-text">Préparer la sauce : mélanger yaourt, aneth ciselée, jus + zeste citron, câpres hachées, sel, poivre. Réserver au frais.</span></li>
+          <li class="step"><span class="step-text">Détailler le brocoli en bouquets. Peler et couper les pommes de terre en cubes 2 cm pour les enfants.</span></li>
+          <li class="step"><span class="step-text">Disposer le saumon dans le bac vapeur perforé, niveau 2. Brocolis et pommes de terre dans bac séparé, niveau 3.</span></li>
+          <li class="step"><span class="step-text">Lancer le programme vapeur, <strong>15-18 min à 100°C</strong>. Le saumon est cuit quand il s'effiloche à la fourchette.</span></li>
+          <li class="step"><span class="step-text">Service : huile d'olive et fleur de sel sur le saumon, sauce yaourt à part. Adultes : double portion brocoli. Enfants : pommes de terre + brocoli.</span></li>
+        </ol>
+
+        <div class="vzug">
+          <div class="vzug-head">⚙ Réglages V-ZUG</div>
+          <div class="vzug-grid">
+            <div class="vzug-item"><strong>Mode</strong>Vapeur 100%</div>
+            <div class="vzug-item"><strong>Temp</strong>100°C</div>
+            <div class="vzug-item"><strong>Niveau</strong>2 et 3</div>
+            <div class="vzug-item"><strong>Préchauf</strong>Non</div>
+            <div class="vzug-item"><strong>Durée</strong>15-18 min</div>
+          </div>
+        </div>
+
+        <div class="note">
+          <strong>Décongélation →</strong> Sortir le saumon du congélateur jeudi 7 mai vers 18h, mettre au frigo.
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ——— DECONGÉLATION SUMMARY ——— -->
+  <div class="decongel">
+    <div class="decongel-head">Récap décongélation</div>
+    <ul>
+      <li><strong>Mardi 5 mai 18h00</strong> — Bœuf haché 500g (pour mercredi soir)</li>
+      <li><strong>Jeudi 7 mai 18h00</strong> — Saumon 4 pavés (pour vendredi midi)</li>
+    </ul>
+  </div>
+
+  <!-- ——— SHOPPING LIST ——— -->
+  <section class="shopping" id="courses">
+    <h2>Liste de courses</h2>
+    <p class="shopping-sub">À faire avant mardi midi. Stock actuel déjà déduit (œufs, bœuf haché).</p>
+
+    <div class="cat-grid">
+
+      <div class="cat">
+        <h3>Boucherie / Poissonnerie</h3>
+        <ul>
+          <li><span>Blancs de poulet</span><span class="qty">350g</span></li>
+          <li><span>Pavés de saumon</span><span class="qty">600g (à congeler)</span></li>
+          <li><span>Jambon cru</span><span class="qty">8 tranches</span></li>
+        </ul>
+      </div>
+
+      <div class="cat">
+        <h3>Légumes & herbes</h3>
+        <ul>
+          <li><span>Courgettes</span><span class="qty">3 grosses</span></li>
+          <li><span>Brocolis</span><span class="qty">1 grosse tête</span></li>
+          <li><span>Tomates cerise</span><span class="qty">200g</span></li>
+          <li><span>Concombre</span><span class="qty">1</span></li>
+          <li><span>Avocat</span><span class="qty">1</span></li>
+          <li><span>Roquette</span><span class="qty">100g</span></li>
+          <li><span>Mesclun</span><span class="qty">150g</span></li>
+          <li><span>Salade batavia</span><span class="qty">1 sachet</span></li>
+          <li><span>Oignons jaunes</span><span class="qty">2</span></li>
+          <li><span>Échalote</span><span class="qty">1</span></li>
+          <li><span>Carotte</span><span class="qty">1</span></li>
+          <li><span>Branche céleri</span><span class="qty">1</span></li>
+          <li><span>Ail</span><span class="qty">1 tête</span></li>
+          <li><span>Citrons</span><span class="qty">2</span></li>
+          <li><span>Persil</span><span class="qty">1 botte</span></li>
+          <li><span>Ciboulette</span><span class="qty">1 botte</span></li>
+          <li><span>Aneth</span><span class="qty">1 botte</span></li>
+          <li><span>Basilic</span><span class="qty">1 botte</span></li>
+        </ul>
+      </div>
+
+      <div class="cat">
+        <h3>Crémerie</h3>
+        <ul>
+          <li><span>Œufs</span><span class="qty">12 (boîte)</span></li>
+          <li><span>Yaourt grec nature</span><span class="qty">200g</span></li>
+          <li><span>Comté ou gruyère râpé</span><span class="qty">100g</span></li>
+          <li><span>Parmesan râpé</span><span class="qty">100g</span></li>
+          <li><span>Beurre</span><span class="qty">100g</span></li>
+        </ul>
+      </div>
+
+      <div class="cat">
+        <h3>Épicerie</h3>
+        <ul>
+          <li><span>Tomates pelées en boîte</span><span class="qty">3 boîtes 400g</span></li>
+          <li><span>Concentré de tomate</span><span class="qty">1 tube</span></li>
+          <li><span>Câpres</span><span class="qty">1 petit pot</span></li>
+          <li><span>Origan séché</span><span class="qty">si besoin</span></li>
+          <li><span>Huile d'olive</span><span class="qty">si besoin</span></li>
+        </ul>
+      </div>
+
+      <div class="cat">
+        <h3>Pour les enfants (féculents)</h3>
+        <ul>
+          <li><span>Pommes de terre</span><span class="qty">600g</span></li>
+          <li><span>Spaghetti ou penne</span><span class="qty">250g</span></li>
+          <li><span>Pain de campagne</span><span class="qty">1</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div>Menu S19 · 5 repas · stock initial : 4 œufs + 500g bœuf haché.</div>
+    <div class="footer-mono">2026.05.04 · v1.0</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
