@@ -57,378 +57,97 @@
 
   .container { max-width: 1080px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
 
-  .nav-back {
-    padding: 24px 0 0;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    color: var(--ink-soft);
-    letter-spacing: 0.05em;
-  }
-  .nav-back a {
-    color: var(--ink-soft);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: 0.2s;
-    margin-right: 18px;
-  }
+  .nav-back { padding: 24px 0 0; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-soft); letter-spacing: 0.05em; }
+  .nav-back a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid transparent; transition: 0.2s; margin-right: 18px; }
   .nav-back a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
   header { padding: 60px 0 48px; }
 
-  .eyebrow {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
+  .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
   .eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--accent); }
 
-  h1 {
-    font-family: 'Fraunces', serif;
-    font-weight: 400;
-    font-size: clamp(40px, 6vw, 72px);
-    line-height: 0.98;
-    letter-spacing: -0.03em;
-    margin-bottom: 24px;
-  }
+  h1 { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(40px, 6vw, 72px); line-height: 0.98; letter-spacing: -0.03em; margin-bottom: 24px; }
   h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
 
-  .lede {
-    font-family: 'Fraunces', serif;
-    font-size: clamp(17px, 1.8vw, 20px);
-    line-height: 1.5;
-    color: var(--ink-soft);
-    max-width: 660px;
-  }
+  .lede { font-family: 'Fraunces', serif; font-size: clamp(17px, 1.8vw, 20px); line-height: 1.5; color: var(--ink-soft); max-width: 660px; }
 
-  .summary {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 16px;
-    margin: 40px 0 0;
-  }
-  .sum-card {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 22px 24px;
-    box-shadow: var(--shadow);
-  }
-  .sum-title {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-    margin-bottom: 12px;
-  }
+  .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 40px 0 0; }
+  .sum-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 24px; box-shadow: var(--shadow); }
+  .sum-title { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 12px; }
   .sum-list { list-style: none; font-size: 14px; color: var(--ink); }
-  .sum-list li {
-    padding: 6px 0;
-    border-bottom: 1px dashed var(--line);
-    display: flex;
-    justify-content: space-between;
-  }
+  .sum-list li { padding: 6px 0; border-bottom: 1px dashed var(--line); display: flex; justify-content: space-between; }
   .sum-list li:last-child { border-bottom: none; }
   .sum-meta { color: var(--ink-soft); font-size: 12.5px; }
 
-  .day-nav {
-    display: flex;
-    gap: 4px;
-    margin: 48px 0 32px;
-    padding: 6px;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    flex-wrap: wrap;
-  }
-  .day-nav-btn {
-    padding: 10px 18px;
-    border: none;
-    background: transparent;
-    font-family: 'Manrope', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--ink-soft);
-    cursor: pointer;
-    border-radius: 8px;
-    text-decoration: none;
-    display: inline-block;
-    transition: 0.2s;
-  }
+  .day-nav { display: flex; gap: 4px; margin: 48px 0 32px; padding: 6px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); flex-wrap: wrap; }
+  .day-nav-btn { padding: 10px 18px; border: none; background: transparent; font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 500; color: var(--ink-soft); cursor: pointer; border-radius: 8px; text-decoration: none; display: inline-block; transition: 0.2s; }
   .day-nav-btn:hover { color: var(--ink); background: var(--bg); }
 
-  .recipe {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-lg);
-    padding: 36px;
-    margin-bottom: 24px;
-    box-shadow: var(--shadow);
-    scroll-margin-top: 24px;
-  }
+  .recipe { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 36px; margin-bottom: 24px; box-shadow: var(--shadow); scroll-margin-top: 24px; }
   .recipe-head { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: start; }
-  .recipe-when {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 12px;
-  }
-  .recipe-name {
-    font-family: 'Fraunces', serif;
-    font-size: 32px;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    margin-bottom: 8px;
-  }
+  .recipe-when { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+  .recipe-name { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 400; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 8px; }
   .recipe-sub { color: var(--ink-soft); font-size: 14.5px; line-height: 1.5; max-width: 580px; }
   .recipe-tags { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
-  .tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    padding: 5px 10px;
-    border-radius: 6px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
+  .tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; padding: 5px 10px; border-radius: 6px; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; }
   .tag.oven { background: var(--accent-soft); color: var(--accent); }
   .tag.thaw { background: var(--night-soft); color: var(--night); }
   .tag.kcal { background: var(--leaf-soft); color: var(--leaf); }
-  .tag.fast { background: var(--sand-soft); color: #8c6f3d; }
   .tag.solo { background: var(--kids-soft); color: var(--kids); }
   .tag.rapide { background: var(--sand-soft); color: #8c6f3d; }
 
-  .recipe-meta {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 0;
-    margin: 24px 0;
-    border-top: 1px solid var(--line);
-    border-left: 1px solid var(--line);
-  }
-  .meta-cell {
-    padding: 14px 18px;
-    border-right: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    background: var(--bg);
-  }
-  .meta-cell-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-    margin-bottom: 4px;
-  }
+  .recipe-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0; margin: 24px 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .meta-cell { padding: 14px 18px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg); }
+  .meta-cell-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 4px; }
   .meta-cell-val { font-family: 'Fraunces', serif; font-size: 18px; }
 
   .recipe-body { display: grid; grid-template-columns: 1fr 1.3fr; gap: 40px; margin-top: 24px; }
 
-  .panel-title {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    margin-bottom: 16px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--line);
-  }
+  .panel-title { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
 
   .ing-list { list-style: none; }
-  .ing {
-    padding: 9px 0;
-    font-size: 14.5px;
-    border-bottom: 1px dashed var(--line);
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-  }
+  .ing { padding: 9px 0; font-size: 14.5px; border-bottom: 1px dashed var(--line); display: flex; justify-content: space-between; gap: 16px; }
   .ing:last-child { border-bottom: none; }
   .ing-qty { color: var(--ink-soft); font-family: 'JetBrains Mono', monospace; font-size: 13px; white-space: nowrap; }
 
-  .ing-section {
-    margin-top: 18px;
-    padding-top: 12px;
-    border-top: 2px solid var(--kids);
-    position: relative;
-    display: block;
-  }
-  .ing-section::before {
-    content: 'Ajout enfants';
-    position: absolute;
-    top: -10px;
-    left: 0;
-    background: var(--kids-soft);
-    color: var(--kids);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    padding: 3px 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border-radius: 4px;
-  }
+  .ing-section { margin-top: 18px; padding-top: 12px; border-top: 2px solid var(--kids); position: relative; display: block; }
+  .ing-section::before { content: 'Ajout enfants'; position: absolute; top: -10px; left: 0; background: var(--kids-soft); color: var(--kids); font-family: 'JetBrains Mono', monospace; font-size: 10px; padding: 3px 10px; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 4px; }
 
   .steps { list-style: none; counter-reset: step; }
-  .step {
-    counter-increment: step;
-    display: grid;
-    grid-template-columns: 32px 1fr;
-    gap: 16px;
-    padding: 12px 0;
-    align-items: baseline;
-    border-bottom: 1px dashed var(--line);
-  }
+  .step { counter-increment: step; display: grid; grid-template-columns: 32px 1fr; gap: 16px; padding: 12px 0; align-items: baseline; border-bottom: 1px dashed var(--line); }
   .step:last-child { border-bottom: none; }
-  .step::before {
-    content: counter(step, decimal-leading-zero);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    color: var(--accent);
-  }
+  .step::before { content: counter(step, decimal-leading-zero); font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); }
   .step-text { font-size: 14.5px; line-height: 1.55; }
   .step-text strong { font-weight: 500; }
 
-  .vzug {
-    margin-top: 24px;
-    padding: 18px 22px;
-    background: var(--accent-soft);
-    border-radius: var(--radius);
-    border-left: 3px solid var(--accent);
-  }
-  .vzug-head {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 10px;
-    font-weight: 500;
-  }
+  .vzug { margin-top: 24px; padding: 18px 22px; background: var(--accent-soft); border-radius: var(--radius); border-left: 3px solid var(--accent); }
+  .vzug-head { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; font-weight: 500; }
   .vzug-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 14px; }
   .vzug-item { font-size: 13px; }
-  .vzug-item strong {
-    display: block;
-    color: var(--accent);
-    font-weight: 500;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    margin-bottom: 3px;
-  }
+  .vzug-item strong { display: block; color: var(--accent); font-weight: 500; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 3px; }
 
-  .note {
-    margin-top: 18px;
-    padding: 14px 18px;
-    background: var(--leaf-soft);
-    border-radius: var(--radius);
-    border-left: 3px solid var(--leaf);
-    font-size: 13.5px;
-    color: var(--leaf);
-    line-height: 1.55;
-  }
+  .note { margin-top: 18px; padding: 14px 18px; background: var(--leaf-soft); border-radius: var(--radius); border-left: 3px solid var(--leaf); font-size: 13.5px; color: var(--leaf); line-height: 1.55; }
   .note strong { font-weight: 500; }
 
-  .warn {
-    margin-top: 12px;
-    padding: 14px 18px;
-    background: var(--accent-soft);
-    border-radius: var(--radius);
-    border-left: 3px solid var(--accent);
-    font-size: 13.5px;
-    color: var(--accent);
-    line-height: 1.55;
-  }
+  .warn { margin-top: 12px; padding: 14px 18px; background: var(--accent-soft); border-radius: var(--radius); border-left: 3px solid var(--accent); font-size: 13.5px; color: var(--accent); line-height: 1.55; }
   .warn strong { font-weight: 500; }
 
-  .decong-bar {
-    margin-top: 48px;
-    padding: 22px 28px;
-    background: var(--night-soft);
-    border-radius: var(--radius);
-    border-left: 3px solid var(--night);
-  }
-  .decong-title {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--night);
-    margin-bottom: 14px;
-    font-weight: 500;
-  }
+  .decong-bar { margin-top: 48px; padding: 22px 28px; background: var(--night-soft); border-radius: var(--radius); border-left: 3px solid var(--night); }
+  .decong-title { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--night); margin-bottom: 14px; font-weight: 500; }
   .decong-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .decong-item {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 16px;
-    font-size: 14px;
-  }
+  .decong-item { display: grid; grid-template-columns: 200px 1fr; gap: 16px; font-size: 14px; }
   .decong-time { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--night); }
 
-  .shop-section-title {
-    font-family: 'Fraunces', serif;
-    font-size: 28px;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    margin-bottom: 6px;
-  }
+  .shop-section-title { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 6px; }
   .shop-section-sub { color: var(--ink-soft); font-size: 14px; margin-bottom: 24px; }
-
-  .shop-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
-  }
-  .shop-cat {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 20px 22px;
-  }
-  .shop-cat-title {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-    margin-bottom: 12px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--line);
-  }
-  .shop-item {
-    padding: 7px 0;
-    font-size: 14px;
-    border-bottom: 1px dashed var(--line);
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-  }
+  .shop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .shop-cat { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; }
+  .shop-cat-title { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+  .shop-item { padding: 7px 0; font-size: 14px; border-bottom: 1px dashed var(--line); display: flex; justify-content: space-between; gap: 12px; }
   .shop-item:last-child { border-bottom: none; }
   .shop-qty { color: var(--ink-soft); font-family: 'JetBrains Mono', monospace; font-size: 12px; white-space: nowrap; }
 
-  footer {
-    margin-top: 80px;
-    padding: 32px 0 48px;
-    border-top: 1px solid var(--line);
-    color: var(--ink-soft);
-    font-size: 13px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
+  footer { margin-top: 80px; padding: 32px 0 48px; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 13px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
   .footer-mono { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.05em; }
 
   @media (max-width: 720px) {
@@ -454,7 +173,7 @@
     <div class="eyebrow">Semaine 22 · 2 → 6 juin 2026</div>
     <h1>Menu de la <em>semaine</em>.</h1>
     <p class="lede">
-      Cinq repas à préparer. Recettes rapides — stock congel en priorité (brocoli, poulet, bœuf haché). Madame seule mar soir, mer midi, ven midi.
+      Quatre repas à préparer. Recettes rapides — stock congel en priorité. Madame seule mer midi et ven midi.
     </p>
 
     <div class="summary">
@@ -471,7 +190,6 @@
       <div class="sum-card">
         <div class="sum-title">Planning S22</div>
         <ul class="sum-list">
-          <li><span>Mar soir</span><span class="sum-meta">1A + 2E — Madame</span></li>
           <li><span>Mer midi</span><span class="sum-meta">1A + 2E — Madame</span></li>
           <li><span>Mer soir</span><span class="sum-meta">2A + 2E</span></li>
           <li><span>Jeu soir</span><span class="sum-meta">2A + 2E</span></li>
@@ -482,7 +200,6 @@
   </header>
 
   <nav class="day-nav">
-    <a class="day-nav-btn" href="#mardi-soir">Mar · soir</a>
     <a class="day-nav-btn" href="#mercredi-midi">Mer · midi</a>
     <a class="day-nav-btn" href="#mercredi-soir">Mer · soir</a>
     <a class="day-nav-btn" href="#jeudi-soir">Jeu · soir</a>
@@ -490,114 +207,54 @@
     <a class="day-nav-btn" href="#courses">Liste courses ↓</a>
   </nav>
 
-  <!-- MARDI SOIR -->
-  <div class="recipe" id="mardi-soir">
-    <div class="recipe-head">
-      <div>
-        <div class="recipe-when">Mardi 3 juin · souper</div>
-        <div class="recipe-name">Émincé de poulet poêlé,<br/>brocoli vapeur & citron</div>
-        <div class="recipe-sub">Madame seule avec les enfants. Poulet du congel, brocoli du congel. 20 min chrono, rien à surveiller de près.</div>
-      </div>
-      <div class="recipe-tags">
-        <span class="tag thaw">Décong. lun 18h</span>
-        <span class="tag solo">Madame</span>
-        <span class="tag rapide">20 min</span>
-        <span class="tag kcal">~400 kcal</span>
-      </div>
-    </div>
-
-    <div class="recipe-meta">
-      <div class="meta-cell"><div class="meta-cell-label">Prép</div><div class="meta-cell-val">5 min</div></div>
-      <div class="meta-cell"><div class="meta-cell-label">Cuisson</div><div class="meta-cell-val">15 min</div></div>
-      <div class="meta-cell"><div class="meta-cell-label">Pour</div><div class="meta-cell-val">1A + 2E</div></div>
-      <div class="meta-cell"><div class="meta-cell-label">Glucides A</div><div class="meta-cell-val">~8g</div></div>
-    </div>
-
-    <div class="recipe-body">
-      <div>
-        <div class="panel-title">Ingrédients</div>
-        <ul class="ing-list">
-          <li class="ing"><span>Poulet émincé (congel)</span><span class="ing-qty">400g</span></li>
-          <li class="ing"><span>Brocoli (congel)</span><span class="ing-qty">300g</span></li>
-          <li class="ing"><span>Ail</span><span class="ing-qty">2 gousses</span></li>
-          <li class="ing"><span>Citron</span><span class="ing-qty">½</span></li>
-          <li class="ing"><span>Huile d'olive, sel, poivre</span><span class="ing-qty">qs</span></li>
-          <li class="ing"><span>Salade verte</span><span class="ing-qty">quelques feuilles</span></li>
-          <div class="ing-section">
-            <li class="ing"><span>Riz ou pâtes</span><span class="ing-qty">100g sec</span></li>
-          </div>
-        </ul>
-      </div>
-      <div>
-        <div class="panel-title">Instructions</div>
-        <ol class="steps">
-          <li class="step"><div class="step-text">Lancer le brocoli congelé directement au V-ZUG vapeur 100°C, 12 min — <strong>pas besoin de décongeler avant</strong>.</div></li>
-          <li class="step"><div class="step-text">Chauffer poêle à feu vif. Huile d'olive, ail émincé 30 secondes.</div></li>
-          <li class="step"><div class="step-text">Poêler le poulet émincé 6–8 min en remuant, saler, poivrer. <strong>Vérifier la cuisson à cœur.</strong></div></li>
-          <li class="step"><div class="step-text">Presser le citron sur le poulet en fin de cuisson. Goûter, ajuster.</div></li>
-          <li class="step"><div class="step-text">Service Madame : poulet + brocoli + salade, filet d'huile. Enfants : idem + féculent.</div></li>
-        </ol>
-
-        <div class="vzug">
-          <div class="vzug-head">⚙ Réglages V-ZUG</div>
-          <div class="vzug-grid">
-            <div class="vzug-item"><strong>Mode</strong>Vapeur 100%</div>
-            <div class="vzug-item"><strong>Temp</strong>100°C</div>
-            <div class="vzug-item"><strong>Durée</strong>12 min</div>
-            <div class="vzug-item"><strong>Préchauf</strong>Non</div>
-          </div>
-        </div>
-
-        <div class="note"><strong>Décongélation →</strong> Sortir 400g de poulet du congélateur lundi 2 juin vers 18h, mettre au frigo.</div>
-      </div>
-    </div>
-  </div>
-
   <!-- MERCREDI MIDI -->
   <div class="recipe" id="mercredi-midi">
     <div class="recipe-head">
       <div>
         <div class="recipe-when">Mercredi 4 juin · dîner</div>
-        <div class="recipe-name">Salade de poulet tiède,<br/>courgette poêlée & parmesan</div>
-        <div class="recipe-sub">Madame seule avec les enfants. Reste de poulet de mardi + courgette fraîche. 15 min, une seule poêle.</div>
+        <div class="recipe-name">Risotto à la courgette,<br/>parmesan & citron</div>
+        <div class="recipe-sub">Madame seule avec les enfants. Repas végétarien, courgette fraîche de stock. Crémeux, rapide à préparer, sans viande à décongeler.</div>
       </div>
       <div class="recipe-tags">
         <span class="tag solo">Madame</span>
-        <span class="tag rapide">15 min</span>
-        <span class="tag kcal">~380 kcal</span>
+        <span class="tag rapide">30 min</span>
+        <span class="tag kcal">~490 kcal</span>
       </div>
     </div>
 
     <div class="recipe-meta">
       <div class="meta-cell"><div class="meta-cell-label">Prép</div><div class="meta-cell-val">5 min</div></div>
-      <div class="meta-cell"><div class="meta-cell-label">Cuisson</div><div class="meta-cell-val">10 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Cuisson</div><div class="meta-cell-val">25 min</div></div>
       <div class="meta-cell"><div class="meta-cell-label">Pour</div><div class="meta-cell-val">1A + 2E</div></div>
-      <div class="meta-cell"><div class="meta-cell-label">Glucides A</div><div class="meta-cell-val">~8g</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Glucides A</div><div class="meta-cell-val">~55g</div></div>
     </div>
 
     <div class="recipe-body">
       <div>
         <div class="panel-title">Ingrédients</div>
         <ul class="ing-list">
-          <li class="ing"><span>Reste poulet (de mardi)</span><span class="ing-qty">200g</span></li>
+          <li class="ing"><span>Riz arborio</span><span class="ing-qty">200g</span></li>
           <li class="ing"><span>Courgette fraîche</span><span class="ing-qty">1 pièce</span></li>
-          <li class="ing"><span>Salade verte</span><span class="ing-qty">½ sachet</span></li>
-          <li class="ing"><span>Citron, huile d'olive</span><span class="ing-qty">qs</span></li>
-          <li class="ing"><span>Parmesan (copeaux)</span><span class="ing-qty">30g</span></li>
-          <div class="ing-section">
-            <li class="ing"><span>Tartines ou pain</span><span class="ing-qty">2–3 tranches</span></li>
-          </div>
+          <li class="ing"><span>Échalote</span><span class="ing-qty">1</span></li>
+          <li class="ing"><span>Bouillon de légumes</span><span class="ing-qty">75 cl</span></li>
+          <li class="ing"><span>Parmesan râpé</span><span class="ing-qty">60g</span></li>
+          <li class="ing"><span>Beurre</span><span class="ing-qty">30g</span></li>
+          <li class="ing"><span>Citron (zeste)</span><span class="ing-qty">½</span></li>
+          <li class="ing"><span>Vin blanc sec (facultatif)</span><span class="ing-qty">10 cl</span></li>
+          <li class="ing"><span>Huile d'olive, sel, poivre</span><span class="ing-qty">qs</span></li>
         </ul>
       </div>
       <div>
         <div class="panel-title">Instructions</div>
         <ol class="steps">
-          <li class="step"><div class="step-text">Couper la courgette en rondelles fines. Poêler à feu vif dans l'huile, 5 min, saler.</div></li>
-          <li class="step"><div class="step-text">Ajouter le poulet en morceaux dans la poêle, réchauffer 2–3 min.</div></li>
-          <li class="step"><div class="step-text">Dresser la salade dans les assiettes. Déposer poulet + courgettes tièdes.</div></li>
-          <li class="step"><div class="step-text">Filet de citron + huile d'olive + copeaux de parmesan. Enfants : ajouter pain.</div></li>
+          <li class="step"><div class="step-text">Faire bouillir le bouillon, maintenir chaud à feu doux.</div></li>
+          <li class="step"><div class="step-text">Couper la courgette en petits dés. Ciseler l'échalote. Suer l'échalote dans huile + 10g beurre, 2 min.</div></li>
+          <li class="step"><div class="step-text">Ajouter le riz, nacrer 2 min en remuant. Déglacer au vin blanc si disponible.</div></li>
+          <li class="step"><div class="step-text">Ajouter une louche de bouillon chaud, remuer jusqu'à absorption. Répéter <strong>18–20 min</strong>. Incorporer les dés de courgette à mi-cuisson.</div></li>
+          <li class="step"><div class="step-text">Hors feu : parmesan + reste de beurre + zeste citron. Mantecatura vigoureuse. Saler, poivrer.</div></li>
+          <li class="step"><div class="step-text">Service : risotto dans les assiettes, copeaux de parmesan, filet d'huile d'olive.</div></li>
         </ol>
-        <div class="note"><strong>Fallback →</strong> Si pas assez de reste poulet, compléter avec une boîte de thon à l'huile. Zéro cuisson supplémentaire.</div>
+        <div class="note"><strong>Note IF →</strong> Glucides élevés (~55g) mais c'est le midi — déficit tenable sur la journée. À ne pas reproduire le soir.</div>
       </div>
     </div>
   </div>
@@ -607,10 +264,11 @@
     <div class="recipe-head">
       <div>
         <div class="recipe-when">Mercredi 4 juin · souper</div>
-        <div class="recipe-name">Poulet rôti au four,<br/>brocoli & sauce moutarde-crème</div>
-        <div class="recipe-sub">Les deux adultes + enfants. Reste du poulet (400g) passé au four avec marinade express. Sauce 2 minutes. Brocoli en accompagnement.</div>
+        <div class="recipe-name">Poulet rôti au four,<br/>brocoli vapeur & sauce moutarde-crème</div>
+        <div class="recipe-sub">Les deux adultes + enfants. 400g de poulet du congel rôti au four avec marinade express. Brocoli vapeur en simultané. Sauce 2 minutes.</div>
       </div>
       <div class="recipe-tags">
+        <span class="tag thaw">Décong. mar 18h</span>
         <span class="tag oven">Four</span>
         <span class="tag rapide">30 min</span>
         <span class="tag kcal">~550 kcal</span>
@@ -628,8 +286,8 @@
       <div>
         <div class="panel-title">Ingrédients</div>
         <ul class="ing-list">
-          <li class="ing"><span>Poulet (congel, 2e portion)</span><span class="ing-qty">400g</span></li>
-          <li class="ing"><span>Brocoli congelé</span><span class="ing-qty">reste du sachet</span></li>
+          <li class="ing"><span>Poulet (congel)</span><span class="ing-qty">400g</span></li>
+          <li class="ing"><span>Brocoli (congel)</span><span class="ing-qty">½ sachet</span></li>
           <li class="ing"><span>Moutarde de Dijon</span><span class="ing-qty">2 c.s.</span></li>
           <li class="ing"><span>Crème entière</span><span class="ing-qty">10 cl</span></li>
           <li class="ing"><span>Ail</span><span class="ing-qty">2 gousses</span></li>
@@ -643,8 +301,8 @@
         <div class="panel-title">Instructions</div>
         <ol class="steps">
           <li class="step"><div class="step-text">Préchauffer four 200°C. Badigeonner le poulet d'huile + 1 c.s. moutarde + thym + ail écrasé. <strong>25 min au four.</strong></div></li>
-          <li class="step"><div class="step-text">Pendant ce temps : brocoli congelé direct au V-ZUG vapeur 12 min. Pommes de terre vapeur enfants en simultané.</div></li>
-          <li class="step"><div class="step-text">Sauce : crème + 1 c.s. moutarde, 2 min à feu doux. Saler, poivrer.</div></li>
+          <li class="step"><div class="step-text">Brocoli congelé direct au V-ZUG vapeur 12 min. Pommes de terre enfants en simultané.</div></li>
+          <li class="step"><div class="step-text">Sauce : crème + 1 c.s. moutarde dans petite casserole, 2 min à feu doux. Saler, poivrer.</div></li>
           <li class="step"><div class="step-text">Service adultes : poulet + brocoli + sauce. Enfants : idem + pommes de terre.</div></li>
         </ol>
         <div class="vzug">
@@ -655,7 +313,7 @@
             <div class="vzug-item"><strong>Durée</strong>12 min</div>
           </div>
         </div>
-        <div class="note"><strong>Décongélation poulet →</strong> La 2e portion (400g) peut être sortie mardi soir directement, elle sera prête mercredi.</div>
+        <div class="note"><strong>Décongélation →</strong> Sortir 400g de poulet du congélateur mardi 3 juin vers 18h, au frigo. Garder les 400g restants pour vendredi.</div>
       </div>
     </div>
   </div>
@@ -666,7 +324,7 @@
       <div>
         <div class="recipe-when">Jeudi 5 juin · souper</div>
         <div class="recipe-name">Bowl bœuf haché poêlé,<br/>salade, œuf & avocat</div>
-        <div class="recipe-sub">Les deux adultes + enfants. Bœuf haché du congel, montage en bowl rapide. Pas de sauce élaborée, pas de cuisson longue.</div>
+        <div class="recipe-sub">Les deux adultes + enfants. Bœuf haché du congel, montage en bowl express. Pas de sauce élaborée, pas de cuisson longue.</div>
       </div>
       <div class="recipe-tags">
         <span class="tag thaw">Décong. mer 18h</span>
@@ -687,12 +345,11 @@
         <div class="panel-title">Ingrédients</div>
         <ul class="ing-list">
           <li class="ing"><span>Bœuf haché 5% (congel)</span><span class="ing-qty">400g</span></li>
-          <li class="ing"><span>Salade verte</span><span class="ing-qty">reste sachet</span></li>
+          <li class="ing"><span>Salade verte</span><span class="ing-qty">½ sachet</span></li>
           <li class="ing"><span>Œufs</span><span class="ing-qty">4</span></li>
           <li class="ing"><span>Avocats</span><span class="ing-qty">2</span></li>
-          <li class="ing"><span>Citron, huile d'olive</span><span class="ing-qty">qs</span></li>
           <li class="ing"><span>Sauce soja</span><span class="ing-qty">1 c.s.</span></li>
-          <li class="ing"><span>Ail, sel, poivre</span><span class="ing-qty">qs</span></li>
+          <li class="ing"><span>Ail, citron, huile d'olive</span><span class="ing-qty">qs</span></li>
           <div class="ing-section">
             <li class="ing"><span>Riz ou pain pita</span><span class="ing-qty">150g / 4 pièces</span></li>
           </div>
@@ -701,13 +358,13 @@
       <div>
         <div class="panel-title">Instructions</div>
         <ol class="steps">
-          <li class="step"><div class="step-text">Poêler le bœuf haché à feu vif avec ail, sauce soja, sel, poivre — <strong>8 min</strong> en cassant à la cuillère. Égoutter si besoin.</div></li>
+          <li class="step"><div class="step-text">Poêler le bœuf haché à feu vif avec ail, sauce soja, sel, poivre — <strong>8 min</strong> en cassant à la cuillère.</div></li>
           <li class="step"><div class="step-text">Dans une autre poêle, cuire 4 œufs au plat dans le beurre, jaune coulant. 3 min.</div></li>
           <li class="step"><div class="step-text">Dresser les bowls : base de salade, bœuf chaud, demi-avocat tranché, œuf au plat.</div></li>
           <li class="step"><div class="step-text">Citron pressé sur l'avocat, huile d'olive, fleur de sel. Enfants : ajouter riz ou pita.</div></li>
         </ol>
         <div class="note"><strong>Décongélation →</strong> Sortir le bœuf haché mercredi 4 juin vers 18h, au frigo.</div>
-        <div class="warn"><strong>⚠ Avocats →</strong> Vérifier la maturité avant courses. Remplacer par fromage de chèvre ou burrata si pas disponibles.</div>
+        <div class="warn"><strong>⚠ Avocats →</strong> Vérifier la maturité à l'achat. Remplacer par chèvre ou burrata si indisponibles.</div>
       </div>
     </div>
   </div>
@@ -717,46 +374,45 @@
     <div class="recipe-head">
       <div>
         <div class="recipe-when">Vendredi 6 juin · dîner</div>
-        <div class="recipe-name">Omelette aux légumes,<br/>fromage & salade</div>
-        <div class="recipe-sub">Madame seule avec les enfants. Zéro décongélation, zéro stress. Œufs + restes de légumes de la semaine. 10 minutes.</div>
+        <div class="recipe-name">Salade de poulet tiède,<br/>brocoli & salade verte</div>
+        <div class="recipe-sub">Madame seule avec les enfants. Reste du poulet de mercredi soir (400g) + fin de brocoli. Réchauffage express, zéro décongélation.</div>
       </div>
       <div class="recipe-tags">
         <span class="tag solo">Madame</span>
-        <span class="tag rapide">10 min</span>
-        <span class="tag kcal">~420 kcal</span>
+        <span class="tag rapide">15 min</span>
+        <span class="tag kcal">~380 kcal</span>
       </div>
     </div>
 
     <div class="recipe-meta">
-      <div class="meta-cell"><div class="meta-cell-label">Prép</div><div class="meta-cell-val">3 min</div></div>
-      <div class="meta-cell"><div class="meta-cell-label">Cuisson</div><div class="meta-cell-val">7 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Prép</div><div class="meta-cell-val">5 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Cuisson</div><div class="meta-cell-val">10 min</div></div>
       <div class="meta-cell"><div class="meta-cell-label">Pour</div><div class="meta-cell-val">1A + 2E</div></div>
-      <div class="meta-cell"><div class="meta-cell-label">Glucides A</div><div class="meta-cell-val">~4g</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Glucides A</div><div class="meta-cell-val">~6g</div></div>
     </div>
 
     <div class="recipe-body">
       <div>
         <div class="panel-title">Ingrédients</div>
         <ul class="ing-list">
-          <li class="ing"><span>Œufs</span><span class="ing-qty">6</span></li>
-          <li class="ing"><span>Restes légumes (brocoli, courgette)</span><span class="ing-qty">qs</span></li>
-          <li class="ing"><span>Fromage râpé ou chèvre</span><span class="ing-qty">50g</span></li>
-          <li class="ing"><span>Beurre, sel, poivre</span><span class="ing-qty">qs</span></li>
-          <li class="ing"><span>Fin de salade verte</span><span class="ing-qty">qs</span></li>
+          <li class="ing"><span>Reste poulet rôti (de mer soir)</span><span class="ing-qty">400g</span></li>
+          <li class="ing"><span>Reste brocoli (de mer soir)</span><span class="ing-qty">½ sachet</span></li>
+          <li class="ing"><span>Salade verte</span><span class="ing-qty">reste sachet</span></li>
+          <li class="ing"><span>Parmesan (copeaux)</span><span class="ing-qty">30g</span></li>
+          <li class="ing"><span>Citron, huile d'olive</span><span class="ing-qty">qs</span></li>
           <div class="ing-section">
-            <li class="ing"><span>Pain ou tartines</span><span class="ing-qty">2–3 tranches</span></li>
+            <li class="ing"><span>Pain de campagne</span><span class="ing-qty">2–3 tranches</span></li>
           </div>
         </ul>
       </div>
       <div>
         <div class="panel-title">Instructions</div>
         <ol class="steps">
-          <li class="step"><div class="step-text">Battre les œufs avec sel et poivre. Incorporer les légumes coupés fins ou réchauffés.</div></li>
-          <li class="step"><div class="step-text">Beurre dans poêle chaude. Verser les œufs, laisser prendre 2 min à feu moyen.</div></li>
-          <li class="step"><div class="step-text">Ajouter le fromage, plier l'omelette. Finir 1 min à couvert si le dessus est encore trop liquide.</div></li>
-          <li class="step"><div class="step-text">Servir avec la fin de salade assaisonnée. Enfants : ajouter pain ou tartines.</div></li>
+          <li class="step"><div class="step-text">Réchauffer le poulet et le brocoli à la poêle dans un filet d'huile, 5 min à feu moyen.</div></li>
+          <li class="step"><div class="step-text">Dresser la salade dans les assiettes. Déposer poulet + brocoli tièdes par-dessus.</div></li>
+          <li class="step"><div class="step-text">Citron pressé, huile d'olive, copeaux de parmesan. Enfants : ajouter pain.</div></li>
         </ol>
-        <div class="note"><strong>Fin de semaine →</strong> Ce repas vide les derniers œufs et restes de légumes. Frigo propre pour le week-end.</div>
+        <div class="note"><strong>Logique stock →</strong> Ce repas utilise exactement les restes de mercredi soir. Frigo vide proprement en fin de semaine. Prévoir 400g de poulet supplémentaires au frigo depuis mercredi (ne pas tout manger mercredi soir).</div>
       </div>
     </div>
   </div>
@@ -765,8 +421,7 @@
   <div class="decong-bar">
     <div class="decong-title">Récap décongélation</div>
     <ul class="decong-list">
-      <li class="decong-item"><span class="decong-time">Lun 2 juin · 18h00</span><span>Poulet 400g (pour mardi soir)</span></li>
-      <li class="decong-item"><span class="decong-time">Mar 3 juin · 18h00</span><span>Poulet 400g (pour mercredi soir)</span></li>
+      <li class="decong-item"><span class="decong-time">Mar 3 juin · 18h00</span><span>Poulet 400g (pour mercredi soir) — laisser les 400g restants au congel</span></li>
       <li class="decong-item"><span class="decong-time">Mer 4 juin · 18h00</span><span>Bœuf haché 400g (pour jeudi soir)</span></li>
     </ul>
   </div>
@@ -774,42 +429,43 @@
   <!-- COURSES -->
   <div id="courses" style="margin-top: 56px;">
     <div class="shop-section-title">Liste de courses</div>
-    <div class="shop-section-sub">À faire avant mardi midi. Stock congel et frais déjà en main déduits.</div>
+    <div class="shop-section-sub">À faire avant mercredi midi. Stock congel et frais déjà en main déduits.</div>
     <div class="shop-grid">
       <div class="shop-cat">
+        <div class="shop-cat-title">Épicerie</div>
+        <div class="shop-item"><span>Riz arborio</span><span class="shop-qty">200g</span></div>
+        <div class="shop-item"><span>Bouillon de légumes</span><span class="shop-qty">1L</span></div>
+        <div class="shop-item"><span>Moutarde de Dijon</span><span class="shop-qty">si besoin</span></div>
+        <div class="shop-item"><span>Sauce soja</span><span class="shop-qty">si besoin</span></div>
+        <div class="shop-item"><span>Huile d'olive</span><span class="shop-qty">si besoin</span></div>
+        <div class="shop-item"><span>Vin blanc sec</span><span class="shop-qty">facultatif</span></div>
+      </div>
+      <div class="shop-cat">
         <div class="shop-cat-title">Crémerie</div>
-        <div class="shop-item"><span>Œufs</span><span class="shop-qty">boîte 12</span></div>
+        <div class="shop-item"><span>Œufs</span><span class="shop-qty">boîte 6</span></div>
         <div class="shop-item"><span>Beurre</span><span class="shop-qty">100g</span></div>
         <div class="shop-item"><span>Crème entière</span><span class="shop-qty">20 cl</span></div>
-        <div class="shop-item"><span>Fromage râpé / chèvre</span><span class="shop-qty">100g</span></div>
-        <div class="shop-item"><span>Parmesan</span><span class="shop-qty">60g</span></div>
+        <div class="shop-item"><span>Parmesan râpé</span><span class="shop-qty">80g</span></div>
       </div>
       <div class="shop-cat">
         <div class="shop-cat-title">Légumes & frais</div>
         <div class="shop-item"><span>Avocats</span><span class="shop-qty">2</span></div>
         <div class="shop-item"><span>Citrons</span><span class="shop-qty">2</span></div>
+        <div class="shop-item"><span>Échalote</span><span class="shop-qty">1</span></div>
         <div class="shop-item"><span>Ail</span><span class="shop-qty">1 tête</span></div>
         <div class="shop-item"><span>Pommes de terre</span><span class="shop-qty">300g</span></div>
       </div>
       <div class="shop-cat">
-        <div class="shop-cat-title">Épicerie</div>
-        <div class="shop-item"><span>Moutarde de Dijon</span><span class="shop-qty">si besoin</span></div>
-        <div class="shop-item"><span>Sauce soja</span><span class="shop-qty">si besoin</span></div>
-        <div class="shop-item"><span>Huile d'olive</span><span class="shop-qty">si besoin</span></div>
-        <div class="shop-item"><span>Thym séché</span><span class="shop-qty">si besoin</span></div>
-      </div>
-      <div class="shop-cat">
         <div class="shop-cat-title">Féculents enfants</div>
-        <div class="shop-item"><span>Riz ou pâtes</span><span class="shop-qty">250g</span></div>
+        <div class="shop-item"><span>Riz ou pâtes</span><span class="shop-qty">200g</span></div>
         <div class="shop-item"><span>Pain de campagne</span><span class="shop-qty">1</span></div>
-        <div class="shop-item"><span>Pain pita (optionnel)</span><span class="shop-qty">4 pièces</span></div>
       </div>
     </div>
   </div>
 
   <footer>
-    <div>Menu S22 · 5 repas · recettes rapides · stock congel prioritaire.</div>
-    <div class="footer-mono">2026.06.01 · v1.0</div>
+    <div>Menu S22 · 4 repas · recettes rapides · stock congel prioritaire.</div>
+    <div class="footer-mono">2026.06.01 · v1.1</div>
   </footer>
 
 </div>
