@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Menu S25 · 15 → 19 juin 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #faf7f2;
+    --surface: #ffffff;
+    --ink: #1a1815;
+    --ink-soft: #6b6760;
+    --ink-faint: #a8a39a;
+    --line: #e8e2d6;
+    --line-strong: #d4ccb9;
+    --accent: #c44528;
+    --accent-soft: #f5e3dc;
+    --leaf: #4a6b3a;
+    --leaf-soft: #e3ebd9;
+    --sand: #d4b896;
+    --sand-soft: #f5ead6;
+    --night: #1f2937;
+    --night-soft: #dde3eb;
+    --kids: #8c4a6b;
+    --kids-soft: #f0e0e8;
+    --shadow: 0 1px 0 rgba(26,24,21,0.04), 0 0 0 1px rgba(26,24,21,0.05);
+    --radius: 12px;
+    --radius-lg: 18px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Manrope', -apple-system, sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.4;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+  }
+
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
+
+  .nav-back { padding: 24px 0 0; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-soft); letter-spacing: 0.05em; }
+  .nav-back a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid transparent; transition: 0.2s; margin-right: 18px; }
+  .nav-back a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  header { padding: 60px 0 48px; }
+
+  .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+  .eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--accent); }
+
+  h1 { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(40px, 6vw, 72px); line-height: 0.98; letter-spacing: -0.03em; margin-bottom: 24px; }
+  h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
+
+  .lede { font-family: 'Fraunces', serif; font-size: clamp(17px, 1.8vw, 20px); line-height: 1.5; color: var(--ink-soft); max-width: 660px; }
+
+  .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 40px 0 0; }
+  .sum-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 24px; box-shadow: var(--shadow); }
+  .sum-title { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 12px; }
+  .sum-list { list-style: none; font-size: 14px; color: var(--ink); }
+  .sum-list li { padding: 6px 0; border-bottom: 1px dashed var(--line); display: flex; justify-content: space-between; }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-meta { color: var(--ink-soft); font-size: 12.5px; }
+
+  .day-nav { display: flex; gap: 4px; margin: 48px 0 32px; padding: 6px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); flex-wrap: wrap; }
+  .day-nav-btn { padding: 10px 18px; border: none; background: transparent; font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 500; color: var(--ink-soft); cursor: pointer; border-radius: 8px; text-decoration: none; display: inline-block; transition: 0.2s; }
+  .day-nav-btn:hover { color: var(--ink); background: var(--bg); }
+
+  .recipe { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 36px; margin-bottom: 24px; box-shadow: var(--shadow); scroll-margin-top: 24px; }
+  .recipe-head { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: start; }
+  .recipe-when { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+  .recipe-name { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 400; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 8px; }
+  .recipe-sub { color: var(--ink-soft); font-size: 14.5px; line-height: 1.5; max-width: 580px; }
+  .recipe-tags { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+  .tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; padding: 5px 10px; border-radius: 6px; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; }
+  .tag.oven { background: var(--accent-soft); color: var(--accent); }
+  .tag.thaw { background: var(--night-soft); color: var(--night); }
+  .tag.kcal { background: var(--leaf-soft); color: var(--leaf); }
+  .tag.solo { background: var(--kids-soft); color: var(--kids); }
+  .tag.rapide { background: var(--sand-soft); color: #8c6f3d; }
+
+  .recipe-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0; margin: 24px 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .meta-cell { padding: 14px 18px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg); }
+  .meta-cell-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 4px; }
+  .meta-cell-val { font-family: 'Fraunces', serif; font-size: 18px; }
+
+  .recipe-body { display: grid; grid-template-columns: 1fr 1.3fr; gap: 40px; margin-top: 24px; }
+
+  .panel-title { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+
+  .ing-list { list-style: none; }
+  .ing { padding: 9px 0; font-size: 14.5px; border-bottom: 1px dashed var(--line); display: flex; justify-content: space-between; gap: 16px; }
+  .ing:last-child { border-bottom: none; }
+  .ing-qty { color: var(--ink-soft); font-family: 'JetBrains Mono', monospace; font-size: 13px; white-space: nowrap; }
+
+  .ing-section { margin-top: 18px; padding-top: 12px; border-top: 2px solid var(--kids); position: relative; display: block; }
+  .ing-section::before { content: 'Ajout enfants'; position: absolute; top: -10px; left: 0; background: var(--kids-soft); color: var(--kids); font-family: 'JetBrains Mono', monospace; font-size: 10px; padding: 3px 10px; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 4px; }
+
+  .steps { list-style: none; counter-reset: step; }
+  .step { counter-increment: step; display: grid; grid-template-columns: 32px 1fr; gap: 16px; padding: 12px 0; align-items: baseline; border-bottom: 1px dashed var(--line); }
+  .step:last-child { border-bottom: none; }
+  .step::before { content: counter(step, decimal-leading-zero); font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); }
+  .step-text { font-size: 14.5px; line-height: 1.55; }
+  .step-text strong { font-weight: 500; }
+
+  .vzug { margin-top: 24px; padding: 18px 22px; background: var(--accent-soft); border-radius: var(--radius); border-left: 3px solid var(--accent); }
+  .vzug-head { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; font-weight: 500; }
+  .vzug-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 14px; }
+  .vzug-item { font-size: 13px; }
+  .vzug-item strong { display: block; color: var(--accent); font-weight: 500; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 3px; }
+
+  .note { margin-top: 18px; padding: 14px 18px; background: var(--leaf-soft); border-radius: var(--radius); border-left: 3px solid var(--leaf); font-size: 13.5px; color: var(--leaf); line-height: 1.55; }
+  .note strong { font-weight: 500; }
+
+  .warn { margin-top: 12px; padding: 14px 18px; background: var(--accent-soft); border-radius: var(--radius); border-left: 3px solid var(--accent); font-size: 13.5px; color: var(--accent); line-height: 1.55; }
+  .warn strong { font-weight: 500; }
+
+  .decong-bar { margin-top: 48px; padding: 22px 28px; background: var(--night-soft); border-radius: var(--radius); border-left: 3px solid var(--night); }
+  .decong-title { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--night); margin-bottom: 14px; font-weight: 500; }
+  .decong-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .decong-item { display: grid; grid-template-columns: 200px 1fr; gap: 16px; font-size: 14px; }
+  .decong-time { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--night); }
+
+  .shop-section-title { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 6px; }
+  .shop-section-sub { color: var(--ink-soft); font-size: 14px; margin-bottom: 24px; }
+  .shop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .shop-cat { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; }
+  .shop-cat-title { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+  .shop-item { padding: 7px 0; font-size: 14px; border-bottom: 1px dashed var(--line); display: flex; justify-content: space-between; gap: 12px; }
+  .shop-item:last-child { border-bottom: none; }
+  .shop-qty { color: var(--ink-soft); font-family: 'JetBrains Mono', monospace; font-size: 12px; white-space: nowrap; }
+
+  footer { margin-top: 80px; padding: 32px 0 48px; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 13px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  .footer-mono { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.05em; }
+
+  @media (max-width: 720px) {
+    .container { padding: 0 20px; }
+    .recipe-head { grid-template-columns: 1fr; }
+    .recipe-tags { justify-content: flex-start; }
+    .recipe-body { grid-template-columns: 1fr; gap: 24px; }
+    .day-nav { overflow-x: auto; }
+    .decong-item { grid-template-columns: 1fr; gap: 2px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="nav-back">
+    <a href="../index.html">← Plan</a>
+    <a href="../menus.html">← Menus type</a>
+  </div>
+
+  <header>
+    <div class="eyebrow">Semaine 25 · 15 → 19 juin 2026</div>
+    <h1>Menu de la <em>semaine</em>.</h1>
+    <p class="lede">
+      Cinq repas, pas de souper jeudi. Priorité au frais qui fatigue (asperges, bœuf cuit, houmous) puis aux deux grillades du congélateur. Une seule course : des haricots verts.
+    </p>
+
+    <div class="summary">
+      <div class="sum-card">
+        <div class="sum-title">Stock utilisé</div>
+        <ul class="sum-list">
+          <li><span>Grillades (congel)</span><span class="sum-meta">2 × 4 pers.</span></li>
+          <li><span>Bœuf cuit (frais, 11/06)</span><span class="sum-meta">le reste</span></li>
+          <li><span>Asperges (frais)</span><span class="sum-meta">1 botte</span></li>
+          <li><span>Houmous (DLC 17/06)</span><span class="sum-meta">1 pot ouvert</span></li>
+          <li><span>Salade · carottes (frais)</span><span class="sum-meta">stock</span></li>
+          <li><span>Œufs · riz · purée Stocki</span><span class="sum-meta">placard</span></li>
+        </ul>
+      </div>
+      <div class="sum-card">
+        <div class="sum-title">Planning S25</div>
+        <ul class="sum-list">
+          <li><span>Lun soir</span><span class="sum-meta">2A + 2E</span></li>
+          <li><span>Mar soir</span><span class="sum-meta">2A + 2E</span></li>
+          <li><span>Mer midi</span><span class="sum-meta">2A + 2E</span></li>
+          <li><span>Mer soir</span><span class="sum-meta">2A + 2E</span></li>
+          <li><span>Jeu soir</span><span class="sum-meta">— pas de menu</span></li>
+          <li><span>Ven midi</span><span class="sum-meta">2A + 2E</span></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <nav class="day-nav">
+    <a class="day-nav-btn" href="#lundi-soir">Lun · soir</a>
+    <a class="day-nav-btn" href="#mardi-soir">Mar · soir</a>
+    <a class="day-nav-btn" href="#mercredi-midi">Mer · midi</a>
+    <a class="day-nav-btn" href="#mercredi-soir">Mer · soir</a>
+    <a class="day-nav-btn" href="#vendredi-midi">Ven · midi</a>
+    <a class="day-nav-btn" href="#courses">Liste courses ↓</a>
+  </nav>
+
+  <!-- LUNDI SOIR -->
+  <div class="recipe" id="lundi-soir">
+    <div class="recipe-head">
+      <div>
+        <div class="recipe-when">Lundi 15 juin · souper</div>
+        <div class="recipe-name">Asperges vapeur sauce moutarde-citron,<br/>bœuf réchauffé, salade &amp; houmous</div>
+        <div class="recipe-sub">Assiette qui vide trois priorités d'un coup : asperges, bœuf cuit de jeudi et houmous. Sauce express maison. Léger, sans glucides.</div>
+      </div>
+      <div class="recipe-tags">
+        <span class="tag oven">Four vapeur</span>
+        <span class="tag rapide">20 min</span>
+        <span class="tag kcal">~420 kcal</span>
+      </div>
+    </div>
+
+    <div class="recipe-meta">
+      <div class="meta-cell"><div class="meta-cell-label">Prép</div><div class="meta-cell-val">10 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Cuisson</div><div class="meta-cell-val">10 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Pour</div><div class="meta-cell-val">2A + 2E</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Glucides A</div><div class="meta-cell-val">~8g</div></div>
+    </div>
+
+    <div class="recipe-body">
+      <div>
+        <div class="panel-title">Ingrédients</div>
+        <ul class="ing-list">
+          <li class="ing"><span>Asperges</span><span class="ing-qty">1 botte</span></li>
+          <li class="ing"><span>Bœuf cuit (reste, 11/06)</span><span class="ing-qty">le reste</span></li>
+          <li class="ing"><span>Salade verte</span><span class="ing-qty">au goût</span></li>
+          <li class="ing"><span>Houmous</span><span class="ing-qty">½ pot</span></li>
+          <li class="ing"><span>Moutarde</span><span class="ing-qty">1 c.s.</span></li>
+          <li class="ing"><span>Jus de citron</span><span class="ing-qty">1 c.s.</span></li>
+          <li class="ing"><span>Huile d'olive</span><span class="ing-qty">3 c.s.</span></li>
+          <li class="ing"><span>Sel, poivre, ciboulette</span><span class="ing-qty">qs</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="panel-title">Instructions</div>
+        <ol class="steps">
+          <li class="step"><div class="step-text">Asperges au V-ZUG <strong>vapeur 100°C, niveau 2, bac perforé, 8–12 min</strong> (vertes ~8–10 min / blanches ~15–18 min). Pas de préchauffage.</div></li>
+          <li class="step"><div class="step-text">Sauce : fouetter moutarde + jus de citron + huile d'olive, sel, poivre, ciboulette. Réserver à température.</div></li>
+          <li class="step"><div class="step-text">Réchauffer les tranches de bœuf à la poêle, <strong>feu doux 2–3 min</strong>, juste pour tiédir — ne pas recuire.</div></li>
+          <li class="step"><div class="step-text">Dresser : asperges nappées de sauce, bœuf tiède, salade assaisonnée, houmous en accompagnement.</div></li>
+        </ol>
+        <div class="vzug">
+          <div class="vzug-head">⚙ V-ZUG Cuisson vapeur</div>
+          <div class="vzug-grid">
+            <div class="vzug-item"><strong>Mode</strong>Vapeur 100%</div>
+            <div class="vzug-item"><strong>Temp</strong>100°C</div>
+            <div class="vzug-item"><strong>Niveau</strong>2 · bac perforé</div>
+            <div class="vzug-item"><strong>Durée</strong>8–12 min</div>
+          </div>
+        </div>
+        <div class="warn"><strong>À vérifier →</strong> Le bœuf a été cuit jeudi 11/06. Contrôler aspect et odeur avant de le réchauffer ; si le moindre doute, on le jette.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MARDI SOIR -->
+  <div class="recipe" id="mardi-soir">
+    <div class="recipe-head">
+      <div>
+        <div class="recipe-when">Mardi 16 juin · souper</div>
+        <div class="recipe-name">Grillade n°1,<br/>carottes rôties &amp; riz</div>
+        <div class="recipe-sub">Première grillade du congélateur, décongelée la veille. Carottes rôties au four pendant que le riz cuit, grillade saisie en fin pour tout servir chaud ensemble.</div>
+      </div>
+      <div class="recipe-tags">
+        <span class="tag thaw">Décong. lun 18h</span>
+        <span class="tag oven">Four</span>
+        <span class="tag rapide">35 min</span>
+        <span class="tag kcal">~560 kcal</span>
+      </div>
+    </div>
+
+    <div class="recipe-meta">
+      <div class="meta-cell"><div class="meta-cell-label">Prép</div><div class="meta-cell-val">10 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Cuisson</div><div class="meta-cell-val">25–30 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Pour</div><div class="meta-cell-val">2A + 2E</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Glucides A</div><div class="meta-cell-val">~12g</div></div>
+    </div>
+
+    <div class="recipe-body">
+      <div>
+        <div class="panel-title">Ingrédients</div>
+        <ul class="ing-list">
+          <li class="ing"><span>Grillade n°1 (congel)</span><span class="ing-qty">pour 4</span></li>
+          <li class="ing"><span>Carottes</span><span class="ing-qty">500–600g</span></li>
+          <li class="ing"><span>Huile d'olive, herbes</span><span class="ing-qty">qs</span></li>
+          <li class="ing"><span>Sel, poivre</span><span class="ing-qty">qs</span></li>
+          <div class="ing-section">
+            <li class="ing"><span>Riz</span><span class="ing-qty">150–200g</span></li>
+          </div>
+        </ul>
+      </div>
+      <div>
+        <div class="panel-title">Instructions</div>
+        <ol class="steps">
+          <li class="step"><div class="step-text">Préchauffer le four. Carottes en bâtonnets, huile d'olive, herbes, sel : <strong>Air chaud 200°C, niveau 2, 25–30 min.</strong></div></li>
+          <li class="step"><div class="step-text">Lancer le riz sur induction (~15 min).</div></li>
+          <li class="step"><div class="step-text">Saisir la grillade sur induction en fin de cuisson (selon épaisseur), repos 3–4 min.</div></li>
+          <li class="step"><div class="step-text">Service : grillade + carottes rôties pour tous, riz surtout pour les enfants.</div></li>
+        </ol>
+        <div class="vzug">
+          <div class="vzug-head">⚙ V-ZUG Air chaud (carottes)</div>
+          <div class="vzug-grid">
+            <div class="vzug-item"><strong>Mode</strong>Air chaud</div>
+            <div class="vzug-item"><strong>Temp</strong>200°C</div>
+            <div class="vzug-item"><strong>Niveau</strong>2 · préchauffé</div>
+            <div class="vzug-item"><strong>Durée</strong>25–30 min</div>
+          </div>
+        </div>
+        <div class="note"><strong>Décongélation →</strong> Sortir la grillade n°1 du congélateur lundi 15 juin vers 18h, au frigo.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MERCREDI MIDI -->
+  <div class="recipe" id="mercredi-midi">
+    <div class="recipe-head">
+      <div>
+        <div class="recipe-when">Mercredi 17 juin · midi</div>
+        <div class="recipe-name">Salade complète,<br/>œuf, carottes râpées &amp; houmous</div>
+        <div class="recipe-sub">Assemblage froid, pas de four. Finit le houmous le jour de sa DLC. Carottes râpées et œuf dur pour le rendre rassasiant.</div>
+      </div>
+      <div class="recipe-tags">
+        <span class="tag rapide">15 min</span>
+        <span class="tag kcal">~430 kcal</span>
+      </div>
+    </div>
+
+    <div class="recipe-meta">
+      <div class="meta-cell"><div class="meta-cell-label">Prép</div><div class="meta-cell-val">15 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Cuisson</div><div class="meta-cell-val">12 min (œufs)</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Pour</div><div class="meta-cell-val">2A + 2E</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Glucides A</div><div class="meta-cell-val">~20g</div></div>
+    </div>
+
+    <div class="recipe-body">
+      <div>
+        <div class="panel-title">Ingrédients</div>
+        <ul class="ing-list">
+          <li class="ing"><span>Salade verte</span><span class="ing-qty">au goût</span></li>
+          <li class="ing"><span>Carottes râpées</span><span class="ing-qty">2–3</span></li>
+          <li class="ing"><span>Œufs</span><span class="ing-qty">4</span></li>
+          <li class="ing"><span>Houmous (reste)</span><span class="ing-qty">½ pot</span></li>
+          <li class="ing"><span>Riz ou céréales (reste)</span><span class="ing-qty">au goût</span></li>
+          <li class="ing"><span>Vinaigrette, huile d'olive</span><span class="ing-qty">qs</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="panel-title">Instructions</div>
+        <ol class="steps">
+          <li class="step"><div class="step-text">Œufs durs : V-ZUG vapeur 100°C ~12 min, ou casserole. Refroidir, écaler, couper en deux.</div></li>
+          <li class="step"><div class="step-text">Râper les carottes. Préparer la salade et d'éventuelles céréales/riz restants.</div></li>
+          <li class="step"><div class="step-text">Dresser : salade + carottes + œufs + une cuillère de houmous. Vinaigrette, filet d'huile d'olive.</div></li>
+        </ol>
+        <div class="note"><strong>Houmous →</strong> Dernier jour de DLC (17/06). On termine le pot ici.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MERCREDI SOIR -->
+  <div class="recipe" id="mercredi-soir">
+    <div class="recipe-head">
+      <div>
+        <div class="recipe-when">Mercredi 17 juin · souper</div>
+        <div class="recipe-name">Grillade n°2,<br/>purée Stocki &amp; haricots verts</div>
+        <div class="recipe-sub">Deuxième grillade du congélateur. Haricots verts vapeur au four pendant que la purée et la grillade se font sur induction.</div>
+      </div>
+      <div class="recipe-tags">
+        <span class="tag thaw">Décong. mar 18h</span>
+        <span class="tag oven">Four vapeur</span>
+        <span class="tag rapide">25 min</span>
+        <span class="tag kcal">~540 kcal</span>
+      </div>
+    </div>
+
+    <div class="recipe-meta">
+      <div class="meta-cell"><div class="meta-cell-label">Prép</div><div class="meta-cell-val">5 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Cuisson</div><div class="meta-cell-val">15 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Pour</div><div class="meta-cell-val">2A + 2E</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Glucides A</div><div class="meta-cell-val">~15g</div></div>
+    </div>
+
+    <div class="recipe-body">
+      <div>
+        <div class="panel-title">Ingrédients</div>
+        <ul class="ing-list">
+          <li class="ing"><span>Grillade n°2 (congel)</span><span class="ing-qty">pour 4</span></li>
+          <li class="ing"><span>Haricots verts</span><span class="ing-qty">~700g</span></li>
+          <li class="ing"><span>Purée Stocki</span><span class="ing-qty">au goût</span></li>
+          <li class="ing"><span>Lait / beurre</span><span class="ing-qty">qs</span></li>
+          <li class="ing"><span>Sel, poivre, ail (option)</span><span class="ing-qty">qs</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="panel-title">Instructions</div>
+        <ol class="steps">
+          <li class="step"><div class="step-text">Haricots verts au V-ZUG <strong>vapeur 100°C, niveau 2, bac perforé, 12–15 min</strong> (frais) — un peu moins si surgelés.</div></li>
+          <li class="step"><div class="step-text">Préparer la purée Stocki sur induction (lait/eau + beurre).</div></li>
+          <li class="step"><div class="step-text">Saisir la grillade sur induction, repos 3–4 min.</div></li>
+          <li class="step"><div class="step-text">Service : grillade + purée + haricots verts (filet d'huile/ail au goût).</div></li>
+        </ol>
+        <div class="vzug">
+          <div class="vzug-head">⚙ V-ZUG Cuisson vapeur (haricots)</div>
+          <div class="vzug-grid">
+            <div class="vzug-item"><strong>Mode</strong>Vapeur 100%</div>
+            <div class="vzug-item"><strong>Temp</strong>100°C</div>
+            <div class="vzug-item"><strong>Niveau</strong>2 · bac perforé</div>
+            <div class="vzug-item"><strong>Durée</strong>12–15 min</div>
+          </div>
+        </div>
+        <div class="note"><strong>Décongélation →</strong> Sortir la grillade n°2 du congélateur mardi 16 juin vers 18h, au frigo.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VENDREDI MIDI -->
+  <div class="recipe" id="vendredi-midi">
+    <div class="recipe-head">
+      <div>
+        <div class="recipe-when">Vendredi 19 juin · midi</div>
+        <div class="recipe-name">Omelette &amp; salade</div>
+        <div class="recipe-sub">Repas placard de fin de semaine. Œufs du stock, salade restante. Rapide, léger, sans course supplémentaire.</div>
+      </div>
+      <div class="recipe-tags">
+        <span class="tag rapide">15 min</span>
+        <span class="tag kcal">~380 kcal</span>
+      </div>
+    </div>
+
+    <div class="recipe-meta">
+      <div class="meta-cell"><div class="meta-cell-label">Prép</div><div class="meta-cell-val">5 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Cuisson</div><div class="meta-cell-val">8 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Pour</div><div class="meta-cell-val">2A + 2E</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Glucides A</div><div class="meta-cell-val">~4g</div></div>
+    </div>
+
+    <div class="recipe-body">
+      <div>
+        <div class="panel-title">Ingrédients</div>
+        <ul class="ing-list">
+          <li class="ing"><span>Œufs</span><span class="ing-qty">6–8</span></li>
+          <li class="ing"><span>Salade verte (reste)</span><span class="ing-qty">au goût</span></li>
+          <li class="ing"><span>Herbes (ciboulette/persil)</span><span class="ing-qty">qs</span></li>
+          <li class="ing"><span>Beurre / huile, sel, poivre</span><span class="ing-qty">qs</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="panel-title">Instructions</div>
+        <ol class="steps">
+          <li class="step"><div class="step-text">Battre les œufs avec sel, poivre, herbes.</div></li>
+          <li class="step"><div class="step-text">Omelette à la poêle, feu moyen, baveuse. Plier.</div></li>
+          <li class="step"><div class="step-text">Servir avec la salade assaisonnée.</div></li>
+        </ol>
+        <div class="note"><strong>Stock →</strong> Termine proprement la semaine : œufs du placard, salade restante. Frigo vidé.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DECONGEL RECAP -->
+  <div class="decong-bar">
+    <div class="decong-title">Récap décongélation</div>
+    <ul class="decong-list">
+      <li class="decong-item"><span class="decong-time">Lun 15 juin · 18h00</span><span>Grillade n°1 (pour mardi soir)</span></li>
+      <li class="decong-item"><span class="decong-time">Mar 16 juin · 18h00</span><span>Grillade n°2 (pour mercredi soir)</span></li>
+    </ul>
+  </div>
+
+  <!-- COURSES -->
+  <div id="courses" style="margin-top: 56px;">
+    <div class="shop-section-title">Liste de courses</div>
+    <div class="shop-section-sub">Semaine très légère côté achats — quasiment tout est déjà en stock (congel, frais, placard).</div>
+    <div class="shop-grid">
+      <div class="shop-cat">
+        <div class="shop-cat-title">Légumes &amp; frais</div>
+        <div class="shop-item"><span>Haricots verts</span><span class="shop-qty">~700g</span></div>
+        <div class="shop-item"><span>Carottes (si stock juste)</span><span class="shop-qty">au besoin</span></div>
+      </div>
+      <div class="shop-cat">
+        <div class="shop-cat-title">Déjà en stock</div>
+        <div class="shop-item"><span>2 grillades</span><span class="shop-qty">congel</span></div>
+        <div class="shop-item"><span>Bœuf cuit, asperges</span><span class="shop-qty">frigo</span></div>
+        <div class="shop-item"><span>Houmous, salade</span><span class="shop-qty">frigo</span></div>
+        <div class="shop-item"><span>Œufs, riz, purée Stocki</span><span class="shop-qty">placard</span></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div>Menu S25 · 5 repas · pas de souper jeudi · stock prioritaire.</div>
+    <div class="footer-mono">2026.06.14 · v1.0</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
