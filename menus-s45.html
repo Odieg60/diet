@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Menu S45 · 2 → 6 novembre 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #faf7f2;
+    --surface: #ffffff;
+    --ink: #1a1815;
+    --ink-soft: #6b6760;
+    --ink-faint: #a8a39a;
+    --line: #e8e2d6;
+    --line-strong: #d4ccb9;
+    --accent: #c44528;
+    --accent-soft: #f5e3dc;
+    --leaf: #4a6b3a;
+    --leaf-soft: #e3ebd9;
+    --sand: #d4b896;
+    --sand-soft: #f5ead6;
+    --night: #1f2937;
+    --night-soft: #dde3eb;
+    --kids: #8c4a6b;
+    --kids-soft: #f0e0e8;
+    --shadow: 0 1px 0 rgba(26,24,21,0.04), 0 0 0 1px rgba(26,24,21,0.05);
+    --radius: 12px;
+    --radius-lg: 18px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Manrope', -apple-system, sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.4;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+  }
+
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
+
+  .nav-back { padding: 24px 0 0; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-soft); letter-spacing: 0.05em; }
+  .nav-back a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid transparent; transition: 0.2s; margin-right: 18px; }
+  .nav-back a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  header { padding: 60px 0 48px; }
+
+  .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+  .eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--accent); }
+
+  h1 { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(40px, 6vw, 72px); line-height: 0.98; letter-spacing: -0.03em; margin-bottom: 24px; }
+  h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
+
+  .lede { font-family: 'Fraunces', serif; font-size: clamp(17px, 1.8vw, 20px); line-height: 1.5; color: var(--ink-soft); max-width: 660px; }
+
+  .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 40px 0 0; }
+  .sum-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 24px; box-shadow: var(--shadow); }
+  .sum-title { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 12px; }
+  .sum-list { list-style: none; font-size: 14px; color: var(--ink); }
+  .sum-list li { padding: 6px 0; border-bottom: 1px dashed var(--line); display: flex; justify-content: space-between; }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-meta { color: var(--ink-soft); font-size: 12.5px; }
+
+  .day-nav { display: flex; gap: 4px; margin: 48px 0 32px; padding: 6px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); flex-wrap: wrap; }
+  .day-nav-btn { padding: 10px 18px; border: none; background: transparent; font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 500; color: var(--ink-soft); cursor: pointer; border-radius: 8px; text-decoration: none; display: inline-block; transition: 0.2s; }
+  .day-nav-btn:hover { color: var(--ink); background: var(--bg); }
+
+  .recipe { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 36px; margin-bottom: 24px; box-shadow: var(--shadow); scroll-margin-top: 24px; }
+  .recipe-head { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: start; }
+  .recipe-when { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+  .recipe-name { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 400; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 8px; }
+  .recipe-sub { color: var(--ink-soft); font-size: 14.5px; line-height: 1.5; max-width: 580px; }
+  .recipe-tags { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+  .tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; padding: 5px 10px; border-radius: 6px; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; }
+  .tag.oven { background: var(--accent-soft); color: var(--accent); }
+  .tag.thaw { background: var(--night-soft); color: var(--night); }
+  .tag.kcal { background: var(--leaf-soft); color: var(--leaf); }
+  .tag.solo { background: var(--kids-soft); color: var(--kids); }
+  .tag.rapide { background: var(--sand-soft); color: #8c6f3d; }
+  .tag.airfryer { background: #f7e8c8; color: #a05f10; }
+
+  .recipe-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0; margin: 24px 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .meta-cell { padding: 14px 18px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg); }
+  .meta-cell-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 4px; }
+  .meta-cell-val { font-family: 'Fraunces', serif; font-size: 18px; }
+
+  .recipe-body { display: grid; grid-template-columns: 1fr 1.3fr; gap: 40px; margin-top: 24px; }
+
+  .panel-title { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+
+  .ing-list { list-style: none; }
+  .ing { padding: 9px 0; font-size: 14.5px; border-bottom: 1px dashed var(--line); display: flex; justify-content: space-between; gap: 16px; }
+  .ing:last-child { border-bottom: none; }
+  .ing-qty { color: var(--ink-soft); font-family: 'JetBrains Mono', monospace; font-size: 13px; white-space: nowrap; }
+
+  .ing-section { margin-top: 18px; padding-top: 12px; border-top: 2px solid var(--kids); position: relative; display: block; }
+  .ing-section::before { content: 'Ajout enfants'; position: absolute; top: -10px; left: 0; background: var(--kids-soft); color: var(--kids); font-family: 'JetBrains Mono', monospace; font-size: 10px; padding: 3px 10px; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 4px; }
+
+  .steps { list-style: none; counter-reset: step; }
+  .step { counter-increment: step; display: grid; grid-template-columns: 32px 1fr; gap: 16px; padding: 12px 0; align-items: baseline; border-bottom: 1px dashed var(--line); }
+  .step:last-child { border-bottom: none; }
+  .step::before { content: counter(step, decimal-leading-zero); font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); }
+  .step-text { font-size: 14.5px; line-height: 1.55; }
+  .step-text strong { font-weight: 500; }
+
+  .vzug { margin-top: 24px; padding: 18px 22px; background: var(--accent-soft); border-radius: var(--radius); border-left: 3px solid var(--accent); }
+  .vzug-head { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; font-weight: 500; }
+  .vzug-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 14px; }
+  .vzug-item { font-size: 13px; }
+  .vzug-item strong { display: block; color: var(--accent); font-weight: 500; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 3px; }
+
+  .note { margin-top: 18px; padding: 14px 18px; background: var(--leaf-soft); border-radius: var(--radius); border-left: 3px solid var(--leaf); font-size: 13.5px; color: var(--leaf); line-height: 1.55; }
+  .note strong { font-weight: 500; }
+
+  .warn { margin-top: 12px; padding: 14px 18px; background: var(--accent-soft); border-radius: var(--radius); border-left: 3px solid var(--accent); font-size: 13.5px; color: var(--accent); line-height: 1.55; }
+  .warn strong { font-weight: 500; }
+
+  .decong-bar { margin-top: 48px; padding: 22px 28px; background: var(--night-soft); border-radius: var(--radius); border-left: 3px solid var(--night); }
+  .decong-title { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--night); margin-bottom: 14px; font-weight: 500; }
+  .decong-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .decong-item { display: grid; grid-template-columns: 200px 1fr; gap: 16px; font-size: 14px; }
+  .decong-time { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--night); }
+
+  .shop-section-title { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 6px; }
+  .shop-section-sub { color: var(--ink-soft); font-size: 14px; margin-bottom: 24px; }
+  .shop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .shop-cat { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; }
+  .shop-cat-title { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+  .shop-item { padding: 7px 0; font-size: 14px; border-bottom: 1px dashed var(--line); display: flex; justify-content: space-between; gap: 12px; }
+  .shop-item:last-child { border-bottom: none; }
+  .shop-qty { color: var(--ink-soft); font-family: 'JetBrains Mono', monospace; font-size: 12px; white-space: nowrap; }
+
+  footer { margin-top: 80px; padding: 32px 0 48px; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 13px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  .footer-mono { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.05em; }
+
+  @media (max-width: 720px) {
+    .container { padding: 0 20px; }
+    .recipe-head { grid-template-columns: 1fr; }
+    .recipe-tags { justify-content: flex-start; }
+    .recipe-body { grid-template-columns: 1fr; gap: 24px; }
+    .day-nav { overflow-x: auto; }
+    .decong-item { grid-template-columns: 1fr; gap: 2px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="nav-back">
+    <a href="./index.html">← Plan</a>
+    <a href="./menus.html">← Menus type</a>
+  </div>
+
+  <header>
+    <div class="eyebrow">Semaine 45 · 2 → 6 novembre 2026</div>
+    <h1>Menu de la <em>semaine</em>.</h1>
+    <p class="lede">
+      Six repas du lundi au vendredi, 2 adultes + 2 enfants. Trois protéines du congélateur (porc, bœuf, poulet), le saumon frais jeudi. Mercredi fait tourner airfryer et four vapeur en parallèle à midi, puis la frittata écoule les légumes et les restes de fromage le soir.
+    </p>
+    <div class="summary">
+      <div class="sum-card">
+        <div class="sum-title">Stock utilisé</div>
+        <ul class="sum-list">
+          <li><span>Filet mignon de porc (congel)</span><span class="sum-meta">lun soir</span></li>
+          <li><span>Viande hachée (congel)</span><span class="sum-meta">400g · mar soir</span></li>
+          <li><span>Blancs de poulet (congel)</span><span class="sum-meta">800g · mer midi</span></li>
+          <li><span>Légumes mélangés (congel)</span><span class="sum-meta">mer midi + soir</span></li>
+          <li><span>Mange-tout (congel)</span><span class="sum-meta">lun soir</span></li>
+          <li><span>Brocolis (congel)</span><span class="sum-meta">jeu soir</span></li>
+          <li><span>Fromages + pain</span><span class="sum-meta">mer soir</span></li>
+          <li><span>Spaghetti · riz · tomates</span><span class="sum-meta">placard</span></li>
+          </ul>
+      </div>
+      <div class="sum-card">
+        <div class="sum-title">Planning S45</div>
+        <ul class="sum-list">
+          <li><span>Lun 2 · soir</span><span class="sum-meta">2A + 2E</span></li>
+          <li><span>Mar 3 · soir</span><span class="sum-meta">2A + 2E</span></li>
+          <li><span>Mer 4 · midi</span><span class="sum-meta">2A + 2E</span></li>
+          <li><span>Mer 4 · soir</span><span class="sum-meta">2A + 2E</span></li>
+          <li><span>Jeu 5 · soir</span><span class="sum-meta">2A + 2E</span></li>
+          <li><span>Ven 6 · midi</span><span class="sum-meta">2A + 2E</span></li>
+          </ul>
+      </div>
+    </div>
+  </header>
+
+  <nav class="day-nav">
+    <a class="day-nav-btn" href="#lundi-soir">Lun · soir</a>
+    <a class="day-nav-btn" href="#mardi-soir">Mar · soir</a>
+    <a class="day-nav-btn" href="#mercredi-midi">Mer · midi</a>
+    <a class="day-nav-btn" href="#mercredi-soir">Mer · soir</a>
+    <a class="day-nav-btn" href="#jeudi-soir">Jeu · soir</a>
+    <a class="day-nav-btn" href="#vendredi-midi">Ven · midi</a>
+    <a class="day-nav-btn" href="#courses">Liste courses ↓</a>
+  </nav>
+
+  <div class="recipe" id="lundi-soir">
+    <div class="recipe-head">
+      <div>
+        <div class="recipe-when">Lundi 2 novembre · souper</div>
+        <div class="recipe-name">Filet mignon de porc<br/>mange-tout à l'ail &amp; riz</div>
+        <div class="recipe-sub">Le filet est saisi à la poêle puis fini au four à la sonde. Riz et mange-tout sur les plaques pendant ce temps.</div>
+      </div>
+      <div class="recipe-tags">
+        <span class="tag oven">Four</span>
+        <span class="tag thaw">Décong. dim 18h</span>
+        </div>
+    </div>
+    <div class="recipe-meta">
+      <div class="meta-cell"><div class="meta-cell-label">Prép</div><div class="meta-cell-val">15 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Cuisson</div><div class="meta-cell-val">~25 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Pour</div><div class="meta-cell-val">2A + 2E</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Glucides A</div><div class="meta-cell-val">~40g</div></div>
+      </div>
+    <div class="recipe-body">
+      <div>
+        <div class="panel-title">Ingrédients</div>
+        <ul class="ing-list">
+          <li class="ing"><span>Filet mignon de porc (congel)</span><span class="ing-qty">pour 4</span></li>
+          <li class="ing"><span>Mange-tout (congel)</span><span class="ing-qty">300g</span></li>
+          <li class="ing"><span>Riz</span><span class="ing-qty">200g</span></li>
+          <li class="ing"><span>Ail</span><span class="ing-qty">2 gousses</span></li>
+          <li class="ing"><span>Huile</span><span class="ing-qty">1 c.s.</span></li>
+          <li class="ing"><span>Sel, poivre</span><span class="ing-qty">qs</span></li>
+          </ul>
+      </div>
+      <div>
+        <div class="panel-title">Instructions</div>
+        <ol class="steps">
+          <li class="step"><div class="step-text">Sortir le filet du frigo <strong>30 min</strong> avant. Saler, poivrer.</div></li>
+          <li class="step"><div class="step-text">Saisir à la poêle à feu vif sur toutes les faces, <strong>4–5 min</strong>.</div></li>
+          <li class="step"><div class="step-text">Enfourner avec la sonde au cœur. Lancer le riz sur une plaque (<strong>15–18 min</strong>).</div></li>
+          <li class="step"><div class="step-text">Arrêt à <strong>63 °C à cœur</strong> (rosé), soit ~15–20 min. Repos <strong>5 min</strong> sous alu.</div></li>
+          <li class="step"><div class="step-text">Pendant le repos : poêler les mange-tout encore surgelés avec l'ail émincé, <strong>6–8 min</strong>.</div></li>
+          </ol>
+        <div class="vzug"><div class="vzug-head">⚙ V-ZUG (filet)</div><div class="vzug-grid"><div class="vzug-item"><strong>Mode</strong>Air chaud + vapeur</div><div class="vzug-item"><strong>Temp</strong>180°C</div><div class="vzug-item"><strong>Niveau</strong>2 · préchauffé</div><div class="vzug-item"><strong>Sonde</strong>63°C</div></div></div>
+        <div class="note"><strong>Appareils →</strong> Four pour le filet, deux plaques pour le riz et les mange-tout.</div>
+        </div>
+    </div>
+  </div>
+
+  <div class="recipe" id="mardi-soir">
+    <div class="recipe-head">
+      <div>
+        <div class="recipe-when">Mardi 3 novembre · souper</div>
+        <div class="recipe-name">Spaghetti bolognaise<br/>&amp; salade verte</div>
+        <div class="recipe-sub">400 g de haché du congel pour quatre : carotte et céleri râpés allongent la sauce. Sans oignon, un peu plus d'ail.</div>
+      </div>
+      <div class="recipe-tags">
+        <span class="tag thaw">Décong. lun 18h</span>
+        <span class="tag rapide">Plaques</span>
+        </div>
+    </div>
+    <div class="recipe-meta">
+      <div class="meta-cell"><div class="meta-cell-label">Prép</div><div class="meta-cell-val">15 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Cuisson</div><div class="meta-cell-val">35 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Pour</div><div class="meta-cell-val">2A + 2E</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Glucides A</div><div class="meta-cell-val">~75g</div></div>
+      </div>
+    <div class="recipe-body">
+      <div>
+        <div class="panel-title">Ingrédients</div>
+        <ul class="ing-list">
+          <li class="ing"><span>Viande hachée (congel)</span><span class="ing-qty">400g</span></li>
+          <li class="ing"><span>Tomates concassées</span><span class="ing-qty">2 boîtes</span></li>
+          <li class="ing"><span>Carottes</span><span class="ing-qty">2</span></li>
+          <li class="ing"><span>Céleri branche</span><span class="ing-qty">1</span></li>
+          <li class="ing"><span>Ail</span><span class="ing-qty">3 gousses</span></li>
+          <li class="ing"><span>Spaghetti</span><span class="ing-qty">400g</span></li>
+          <li class="ing"><span>Beaufort râpé</span><span class="ing-qty">qs</span></li>
+          <li class="ing"><span>Salade verte</span><span class="ing-qty">1</span></li>
+          </ul>
+      </div>
+      <div>
+        <div class="panel-title">Instructions</div>
+        <ol class="steps">
+          <li class="step"><div class="step-text">Râper fin la carotte et le céleri, émincer l'ail.</div></li>
+          <li class="step"><div class="step-text">Faire revenir ail, carotte et céleri <strong>5 min</strong>.</div></li>
+          <li class="step"><div class="step-text">Ajouter le haché, dorer <strong>5 min</strong> en émiettant.</div></li>
+          <li class="step"><div class="step-text">Ajouter les tomates, mijoter <strong>25 min</strong> à couvert puis <strong>5 min</strong> à découvert.</div></li>
+          <li class="step"><div class="step-text">Cuire les pâtes pendant les 10 dernières minutes. Beaufort râpé au service, salade à côté.</div></li>
+          </ol>
+        <div class="note"><strong>Appareils →</strong> Tout sur les plaques. Four et airfryer libres.</div>
+        </div>
+    </div>
+  </div>
+
+  <div class="recipe" id="mercredi-midi">
+    <div class="recipe-head">
+      <div>
+        <div class="recipe-when">Mercredi 4 novembre · dîner</div>
+        <div class="recipe-name">Blancs de poulet à l'airfryer<br/>&amp; légumes vapeur</div>
+        <div class="recipe-sub">800 g de blancs, donc deux fournées à l'airfryer. Les légumes mélangés cuisent à la vapeur au four en parallèle.</div>
+      </div>
+      <div class="recipe-tags">
+        <span class="tag airfryer">Airfryer</span>
+        <span class="tag oven">Four vapeur</span>
+        <span class="tag thaw">Décong. mar 18h</span>
+        </div>
+    </div>
+    <div class="recipe-meta">
+      <div class="meta-cell"><div class="meta-cell-label">Prép</div><div class="meta-cell-val">10 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Cuisson</div><div class="meta-cell-val">~40 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Pour</div><div class="meta-cell-val">2A + 2E</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Glucides A</div><div class="meta-cell-val">~10g</div></div>
+      </div>
+    <div class="recipe-body">
+      <div>
+        <div class="panel-title">Ingrédients</div>
+        <ul class="ing-list">
+          <li class="ing"><span>Blancs de poulet (congel)</span><span class="ing-qty">800g</span></li>
+          <li class="ing"><span>Légumes mélangés (congel)</span><span class="ing-qty">~½ sachet</span></li>
+          <li class="ing"><span>Paprika, sel, poivre</span><span class="ing-qty">qs</span></li>
+          </ul>
+      </div>
+      <div>
+        <div class="panel-title">Instructions</div>
+        <ol class="steps">
+          <li class="step"><div class="step-text">Sécher les blancs, assaisonner à sec. <strong>Pas d'huile</strong> dans le panier.</div></li>
+          <li class="step"><div class="step-text">Airfryer, <strong>2 fournées de 400 g</strong> : 180°C / 15–20 min chacune, retourner à mi-cuisson. La 1re démarre à froid : <strong>+3 min</strong>.</div></li>
+          <li class="step"><div class="step-text">Garder la 1re fournée au chaud sous alu pendant la 2e.</div></li>
+          <li class="step"><div class="step-text">Lancer les légumes au four <strong>12 min</strong> avant la fin de la 2e fournée.</div></li>
+          </ol>
+        <div class="vzug"><div class="vzug-head">⚙ Airfryer LANDI (poulet)</div><div class="vzug-grid"><div class="vzug-item"><strong>Temp</strong>180°C</div><div class="vzug-item"><strong>Durée</strong>15–20 min / fournée</div><div class="vzug-item"><strong>Fournées</strong>2 × 400g</div><div class="vzug-item"><strong>Retourner</strong>à mi-cuisson</div></div></div>
+        <div class="vzug"><div class="vzug-head">⚙ V-ZUG (légumes)</div><div class="vzug-grid"><div class="vzug-item"><strong>Mode</strong>Cuisson à la vapeur</div><div class="vzug-item"><strong>Temp</strong>100°C</div><div class="vzug-item"><strong>Niveau</strong>2 · bac perforé</div><div class="vzug-item"><strong>Durée</strong>~12 min</div></div></div>
+        <div class="note"><strong>Cuisson en parallèle →</strong> Airfryer pour le poulet, four vapeur pour les légumes. La notice LANDI donne 500 g max pour le blanc de poulet, d'où les deux fournées.</div>
+        </div>
+    </div>
+  </div>
+
+  <div class="recipe" id="mercredi-soir">
+    <div class="recipe-head">
+      <div>
+        <div class="recipe-when">Mercredi 4 novembre · souper</div>
+        <div class="recipe-name">Frittata aux trois fromages<br/>pain &amp; salade</div>
+        <div class="recipe-sub">Le reste des légumes du midi et les fromages (Abondance, Beaufort, tomme) dans une frittata au four. Le pain accompagne.</div>
+      </div>
+      <div class="recipe-tags">
+        <span class="tag oven">Four</span>
+        <span class="tag solo">Restes</span>
+        </div>
+    </div>
+    <div class="recipe-meta">
+      <div class="meta-cell"><div class="meta-cell-label">Prép</div><div class="meta-cell-val">10 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Cuisson</div><div class="meta-cell-val">20–25 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Pour</div><div class="meta-cell-val">2A + 2E</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Glucides A</div><div class="meta-cell-val">~30g</div></div>
+      </div>
+    <div class="recipe-body">
+      <div>
+        <div class="panel-title">Ingrédients</div>
+        <ul class="ing-list">
+          <li class="ing"><span>Œufs</span><span class="ing-qty">8</span></li>
+          <li class="ing"><span>Reste légumes mélangés</span><span class="ing-qty">~300g</span></li>
+          <li class="ing"><span>Abondance · Beaufort · tomme</span><span class="ing-qty">150g</span></li>
+          <li class="ing"><span>Pain</span><span class="ing-qty">qs</span></li>
+          <li class="ing"><span>Salade verte</span><span class="ing-qty">1</span></li>
+          <li class="ing"><span>Sel, poivre</span><span class="ing-qty">qs</span></li>
+          </ul>
+      </div>
+      <div>
+        <div class="panel-title">Instructions</div>
+        <ol class="steps">
+          <li class="step"><div class="step-text">Si les légumes sont encore surgelés, les poêler <strong>5 min</strong> pour évacuer l'eau.</div></li>
+          <li class="step"><div class="step-text">Battre les œufs avec la moitié du fromage, ajouter les légumes.</div></li>
+          <li class="step"><div class="step-text">Verser dans un plat beurré, parsemer le reste du fromage.</div></li>
+          <li class="step"><div class="step-text">Enfourner <strong>20–25 min</strong>, jusqu'à ce que le centre soit pris.</div></li>
+          <li class="step"><div class="step-text">Servir avec le pain et la salade.</div></li>
+          </ol>
+        <div class="vzug"><div class="vzug-head">⚙ V-ZUG (frittata)</div><div class="vzug-grid"><div class="vzug-item"><strong>Mode</strong>Air chaud humide</div><div class="vzug-item"><strong>Temp</strong>180°C</div><div class="vzug-item"><strong>Niveau</strong>2 · préchauffé</div><div class="vzug-item"><strong>Durée</strong>20–25 min</div></div></div>
+        <div class="note"><strong>Pourquoi ce mode →</strong> Le manuel Combi-Steam recommande Air chaud humide pour les gratins et soufflés : l'humidité de l'aliment est conservée.</div>
+        </div>
+    </div>
+  </div>
+
+  <div class="recipe" id="jeudi-soir">
+    <div class="recipe-head">
+      <div>
+        <div class="recipe-when">Jeudi 5 novembre · souper</div>
+        <div class="recipe-name">Saumon &amp; brocolis vapeur<br/>riz</div>
+        <div class="recipe-sub">Saumon et brocolis ensemble à la vapeur au four, riz sur une plaque.</div>
+      </div>
+      <div class="recipe-tags">
+        <span class="tag oven">Four vapeur</span>
+        <span class="tag rapide">Rapide</span>
+        </div>
+    </div>
+    <div class="recipe-meta">
+      <div class="meta-cell"><div class="meta-cell-label">Prép</div><div class="meta-cell-val">5 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Cuisson</div><div class="meta-cell-val">~20 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Pour</div><div class="meta-cell-val">2A + 2E</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Glucides A</div><div class="meta-cell-val">~40g</div></div>
+      </div>
+    <div class="recipe-body">
+      <div>
+        <div class="panel-title">Ingrédients</div>
+        <ul class="ing-list">
+          <li class="ing"><span>Saumon frais</span><span class="ing-qty">600g</span></li>
+          <li class="ing"><span>Brocolis (congel)</span><span class="ing-qty">400g</span></li>
+          <li class="ing"><span>Riz</span><span class="ing-qty">200g</span></li>
+          <li class="ing"><span>Citron</span><span class="ing-qty">1</span></li>
+          <li class="ing"><span>Sel, poivre</span><span class="ing-qty">qs</span></li>
+          </ul>
+      </div>
+      <div>
+        <div class="panel-title">Instructions</div>
+        <ol class="steps">
+          <li class="step"><div class="step-text">Lancer le riz sur une plaque (<strong>15–18 min</strong>).</div></li>
+          <li class="step"><div class="step-text">Brocolis encore surgelés dans le bac perforé, lancer le four.</div></li>
+          <li class="step"><div class="step-text">Après <strong>5 min</strong>, ajouter le saumon à côté. Cuire encore <strong>12–15 min</strong>.</div></li>
+          <li class="step"><div class="step-text">Saler à la sortie, citron si on veut.</div></li>
+          </ol>
+        <div class="vzug"><div class="vzug-head">⚙ V-ZUG (saumon + brocolis)</div><div class="vzug-grid"><div class="vzug-item"><strong>Mode</strong>Cuisson à la vapeur</div><div class="vzug-item"><strong>Temp</strong>90°C</div><div class="vzug-item"><strong>Niveau</strong>2 · bac perforé</div><div class="vzug-item"><strong>Préchauffage</strong>non</div></div></div>
+        <div class="warn"><strong>Fraîcheur →</strong> Saumon frais à acheter mercredi ou jeudi, pas ce week-end.</div>
+        </div>
+    </div>
+  </div>
+
+  <div class="recipe" id="vendredi-midi">
+    <div class="recipe-head">
+      <div>
+        <div class="recipe-when">Vendredi 6 novembre · dîner</div>
+        <div class="recipe-name">Penne au pesto<br/>&amp; tomates cerises</div>
+        <div class="recipe-sub">Fin de semaine simple, sans protéine ajoutée. Le reste du Beaufort râpé par-dessus.</div>
+      </div>
+      <div class="recipe-tags">
+        <span class="tag rapide">Rapide</span>
+        </div>
+    </div>
+    <div class="recipe-meta">
+      <div class="meta-cell"><div class="meta-cell-label">Prép</div><div class="meta-cell-val">5 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Cuisson</div><div class="meta-cell-val">12 min</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Pour</div><div class="meta-cell-val">2A + 2E</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Glucides A</div><div class="meta-cell-val">~75g</div></div>
+      </div>
+    <div class="recipe-body">
+      <div>
+        <div class="panel-title">Ingrédients</div>
+        <ul class="ing-list">
+          <li class="ing"><span>Penne</span><span class="ing-qty">400g</span></li>
+          <li class="ing"><span>Pesto</span><span class="ing-qty">~150g</span></li>
+          <li class="ing"><span>Tomates cerises</span><span class="ing-qty">250g</span></li>
+          <li class="ing"><span>Beaufort râpé (reste)</span><span class="ing-qty">qs</span></li>
+          </ul>
+      </div>
+      <div>
+        <div class="panel-title">Instructions</div>
+        <ol class="steps">
+          <li class="step"><div class="step-text">Cuire les pâtes, garder une louche d'eau de cuisson.</div></li>
+          <li class="step"><div class="step-text">Mélanger avec le pesto, détendre avec l'eau de cuisson.</div></li>
+          <li class="step"><div class="step-text">Ajouter les tomates coupées en deux et le fromage au service.</div></li>
+          </ol>
+        <div class="note"><strong>Appareils →</strong> Une plaque, c'est tout.</div>
+        </div>
+    </div>
+  </div>
+
+  <div class="decong-bar">
+    <div class="decong-title">Récap décongélation</div>
+    <ul class="decong-list">
+      <li class="decong-item"><span class="decong-time">Dim 1er nov · 18h00</span><span>Filet mignon de porc (pour lundi soir) — au frigo.</span></li>
+      <li class="decong-item"><span class="decong-time">Lun 2 nov · 18h00</span><span>Viande hachée 400g (pour mardi soir) — un seul usage, jamais recongelée.</span></li>
+      <li class="decong-item"><span class="decong-time">Mar 3 nov · 18h00</span><span>Blancs de poulet 800g (pour mercredi midi) — au frigo.</span></li>
+      <li class="decong-item"><span class="decong-time">—</span><span>Mange-tout, légumes mélangés, brocolis : cuisson directe depuis le congélateur, rien à sortir.</span></li>
+      </ul>
+  </div>
+
+  <div id="courses" style="margin-top: 56px;">
+    <div class="shop-section-title">Liste de courses</div>
+    <div class="shop-section-sub">Le congélateur couvre les protéines du lundi au mercredi. Le saumon s'achète mercredi ou jeudi pour rester frais.</div>
+    <div class="shop-grid">
+      <div class="shop-cat"><div class="shop-cat-title">Poissonnerie (mer ou jeu)</div><div class="shop-item"><span>Saumon frais</span><span class="shop-qty">600g</span></div></div>
+      <div class="shop-cat"><div class="shop-cat-title">Légumes &amp; frais</div><div class="shop-item"><span>Salade verte</span><span class="shop-qty">2</span></div><div class="shop-item"><span>Carottes</span><span class="shop-qty">2</span></div><div class="shop-item"><span>Céleri branche</span><span class="shop-qty">1</span></div><div class="shop-item"><span>Ail</span><span class="shop-qty">1 tête</span></div><div class="shop-item"><span>Tomates cerises</span><span class="shop-qty">250g</span></div><div class="shop-item"><span>Citron</span><span class="shop-qty">1</span></div></div>
+      <div class="shop-cat"><div class="shop-cat-title">Crèmerie / épicerie</div><div class="shop-item"><span>Œufs</span><span class="shop-qty">8</span></div><div class="shop-item"><span>Penne (si pas en stock)</span><span class="shop-qty">400g</span></div><div class="shop-item"><span>Pesto (si pas en stock)</span><span class="shop-qty">1 pot</span></div></div>
+      <div class="shop-cat"><div class="shop-cat-title">Déjà en stock</div><div class="shop-item"><span>Filet mignon de porc (congel)</span><span class="shop-qty">pour 4</span></div><div class="shop-item"><span>Viande hachée (congel)</span><span class="shop-qty">400g</span></div><div class="shop-item"><span>Blancs de poulet (congel)</span><span class="shop-qty">800g</span></div><div class="shop-item"><span>Mange-tout · légumes mélangés · brocolis</span><span class="shop-qty">congel</span></div><div class="shop-item"><span>Abondance · Beaufort · tomme</span><span class="shop-qty">frigo</span></div><div class="shop-item"><span>Pain</span><span class="shop-qty">stock</span></div><div class="shop-item"><span>Spaghetti · riz · tomates concassées</span><span class="shop-qty">placard</span></div></div>
+      </div>
+  </div>
+
+  <footer>
+    <div>Menu S45 · 6 repas du lundi au vendredi · four / airfryer / plaques en parallèle.</div>
+    <div class="footer-mono">2026.10.31 · v1.0</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
